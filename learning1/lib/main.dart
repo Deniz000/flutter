@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:learning1/101/textfield_learn.dart';
+import 'package:learning1/demo/color_demos.dart';
+import 'package:learning1/demo/colors_life_cycle.dart';
 
-void main() {
+void main() { 
   runApp(const MyApp());
 }
 
@@ -27,12 +28,12 @@ class MyApp extends StatelessWidget {
           filled: true,
            fillColor: Colors.green[100],
            prefixIconColor: Colors.green[800],
-           border: OutlineInputBorder(),
+           border: const OutlineInputBorder(),
 
         )
         // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       ),
-      home: TextFieldLearn(),
+      home: const ColorLifeCycleView(),
     );
   }
 }
