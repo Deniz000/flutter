@@ -20,7 +20,7 @@ class FirstDemoApp extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(_getPathName),
-            _WithContainer(
+            _withContainer(
               TextValues(
                 text: header,
                 theme: Theme.of(context)
@@ -42,7 +42,7 @@ class FirstDemoApp extends StatelessWidget {
                       ),
               textAlign: TextAlign.center,
             ),
-            _WithContainer(_ButtonStyle(
+            _withContainer(_ButtonStyle(
               createANote: createANote,
             )),
             TextButton(
@@ -55,7 +55,7 @@ class FirstDemoApp extends StatelessWidget {
     );
   }
 
-  Container _WithContainer(Widget widget) {
+  Container _withContainer(Widget widget) {
     return Container(
       margin: PaddingValues().widgetVerticalPadding,
       child: widget,
@@ -68,8 +68,8 @@ class FirstDemoApp extends StatelessWidget {
 }
 
 class _ButtonStyle extends StatelessWidget {
-  _ButtonStyle({super.key, required this.createANote});
-  String createANote;
+  const _ButtonStyle({required this.createANote});
+  final String createANote;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -84,10 +84,10 @@ class _ButtonStyle extends StatelessWidget {
 }
 
 class TextValues extends StatelessWidget {
-  TextValues({super.key, required this.text, this.theme, this.textAlign});
-  String text;
-  TextStyle? theme;
-  TextAlign? textAlign;
+  const TextValues({super.key, required this.text, this.theme, this.textAlign});
+  final String text;
+  final TextStyle? theme;
+  final TextAlign? textAlign;
 
   @override
   Widget build(BuildContext context) {

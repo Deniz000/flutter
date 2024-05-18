@@ -26,11 +26,10 @@ class ListTileLearn  extends StatelessWidget {
 }
 
 class _ListCard extends StatelessWidget {
-  _ListCard({
-    super.key,
+  const _ListCard({
     required this.personName
   });
-  String personName;
+  final String personName;
 
   @override
   Widget build(BuildContext context) {
