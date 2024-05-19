@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning1/demo/color_demos.dart';
-import 'package:learning1/demo/colors_life_cycle.dart';
+import 'package:learning1/my_demos/my_stack_page.dart';
 
 void main() { 
   runApp(const MyApp());
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
         )
         // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       ),
-      home: const ColorLifeCycleView(),
+      home: const MyStackPage(),
     );
   }
 }

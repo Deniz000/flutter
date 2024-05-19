@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:learning1/product/language/language_items.dart';
@@ -35,7 +33,7 @@ class _InputTextField extends StatelessWidget {
       keyboardType: TextInputType.emailAddress,
       autofillHints: const [AutofillHints.email], //otomatik tamamlama
       textInputAction: TextInputAction.next , // done tuiuna basınca bi sonrakine geçmeye yarıyor
-      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+      style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       buildCounter: (BuildContext,
           {required int currentLength,
           required bool isFocused,
@@ -44,7 +42,7 @@ class _InputTextField extends StatelessWidget {
           key: GlobalKey(),
           duration: const Duration(seconds: 1),
           height: 10,
-          width: (10*(currentLength ?? 0).toDouble()),
+          width: (10*(currentLength).toDouble()),
           color: Colors.green,
         );
       },
