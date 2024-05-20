@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning1/my_demos/my_stack_page.dart';
-
+import 'package:learning1/101/navigation_learn.dart';
 void main() { 
   runApp(const MyApp());
 }
@@ -32,7 +31,7 @@ class MyApp extends StatelessWidget {
         )
         // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       ),
-      home: const MyStackPage(),
+      home: const NavigationLearn(),
     );
   }
 }

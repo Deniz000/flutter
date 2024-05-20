@@ -17,7 +17,6 @@ class AppBarLearn extends StatelessWidget {
         leading: const Icon(Icons.arrow_back_ios_new),
         actions: [IconButton(onPressed: (){}, icon: const Icon(Icons.menu)), 
         const Center(child: CircularProgressIndicator(),)],
-        
       ),
     );
   }
