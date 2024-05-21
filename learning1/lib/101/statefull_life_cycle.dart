@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
 class SFullLifeCycleLearn extends StatefulWidget {
-  SFullLifeCycleLearn({super.key, required this.message});
+  const SFullLifeCycleLearn({super.key, required this.message});
   final String message;
 
   @override
@@ -14,13 +14,11 @@ class _SFullLifeCycleLearnState extends State<SFullLifeCycleLearn> {
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
     super.didChangeDependencies();
   }
 
   @override
   void didUpdateWidget(covariant SFullLifeCycleLearn oldWidget) {
-    // TODO: implement didUpdateWidget
     super.didUpdateWidget(oldWidget);
     if (oldWidget.message != widget.message) {
       _message = widget.message;
@@ -31,7 +29,6 @@ class _SFullLifeCycleLearnState extends State<SFullLifeCycleLearn> {
 
   @override
   void dispose() { // SAYFADAN ÇIKTIĞINDA, SAYFA ÖLDÜĞÜNDE ÇALIŞTIRR <3<<3<3<3
-    // TODO: implement dispose
     super.dispose(); 
   }
   @override
