@@ -9,25 +9,10 @@ class MyDemoOne extends StatelessWidget with ColorsItems {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    List<ItemModel> items = [
-      ItemModel(
-          iconName: "instagram",
-          jobName: "Lead UI Developer",
-          salary: "\$10k - \$20k"),
-      ItemModel(
-          iconName: "skype",
-          jobName: "Senior Web Designer",
-          salary: "\$10k - \$18k"),
-      ItemModel(
-          iconName: "google", jobName: "UI/UX Designer", salary: "\$8k - \$16k"),
-      ItemModel(
-          iconName: "dribbble",
-          jobName: "Graphic Designer",
-          salary: "\$8k - \$14k"),
-    ];
+  
+    List<ItemModel> lists = ItemModel.list as List<ItemModel>;
 
     return Scaffold(
-      backgroundColor: Colors.white,
       body: Stack(
         children: [
           Column(
@@ -90,14 +75,14 @@ class MyDemoOne extends StatelessWidget with ColorsItems {
                     ),
                   ),
                   child: ListView.builder(
-                    itemCount: items.length,
+                    itemCount: lists.length,
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 5),
                         child: ItemCard(
-                          iconName: items[index].iconName,
-                          jobName: items[index].jobName,
-                          salary: items[index].salary,
+                          iconName: lists[index].iconName,
+                          jobName: lists[index].jobName,
+                          salary: lists[index].salary,
                         ),
                       );
                     },

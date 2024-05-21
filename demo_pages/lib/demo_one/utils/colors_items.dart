@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 mixin ColorsItems {
-  final Color primaryColor = const Color.fromARGB(200, 242, 215, 183);
+  final Color primaryColor = Color.fromARGB(255, 251, 232, 209);
+  final Color secondColor = const Color.fromARGB(199, 67, 73, 187);
   // White color should have a different value if needed, currently same as primaryColor
-  final Color white = Colors.white; // Changed to standard white color
+  final Color backgroudWhite = Colors.white; // Changed to standard white color
 }

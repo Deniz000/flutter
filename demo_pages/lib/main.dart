@@ -1,4 +1,4 @@
-import 'package:demo_pages/demo_one/screens/demo.dart';
+import 'package:demo_pages/demo_one/screens/demo_left_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,9 +15,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
-      home: MyDemoOne(),
+      home: MyDomeLeftPage(),
     );
   }
 }
