@@ -1,4 +1,5 @@
-import 'package:demo_pages/demo_one/screens/demo_left_page.dart';
+import 'package:demo_pages/chatui/pages/chatte.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
-      home: MyDomeLeftPage(),
+      home: ChatteAppUI(),
     );
   }
 }
