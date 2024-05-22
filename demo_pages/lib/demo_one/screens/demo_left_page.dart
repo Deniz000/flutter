@@ -1,4 +1,3 @@
-import 'package:demo_pages/demo_one/models/item_model.dart';
 import 'package:demo_pages/demo_one/utils/border_radius.dart';
 import 'package:demo_pages/demo_one/utils/colors_items.dart';
 import 'package:demo_pages/demo_one/widgets/icon_card.dart';
@@ -10,13 +9,7 @@ class MyDomeLeftPage extends StatelessWidget with CustomRadius, ColorsItems {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
-
-    List<ItemModel> list = ItemModel.list();
-    String a = list[0].iconName;
-    String b = list[0].jobName;
-    String c = list[0].salary;
+    // List<ItemModel> list = ItemModel.list();
     return Scaffold(
       body: Column(
         children: [
@@ -27,7 +20,7 @@ class MyDomeLeftPage extends StatelessWidget with CustomRadius, ColorsItems {
                 Container(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 70),
-                  height: height * 0.3,
+                  height: 250,
                   decoration: BoxDecoration(
                       color: secondColor,
                       borderRadius: BorderRadius.only(bottomRight: radius60)),
@@ -49,9 +42,9 @@ class MyDomeLeftPage extends StatelessWidget with CustomRadius, ColorsItems {
                 Positioned(
                   bottom: 0,
                   child: Container(
-                    padding: EdgeInsets.all(24.0),
-                    height: height * 0.22,
-                    width: width * 0.7,
+                    padding: const EdgeInsets.all(24.0),
+                    height: 200,
+                    width: 300,
                     decoration: BoxDecoration(
                       color: primaryColor,
                       borderRadius: BorderRadius.only(
@@ -87,31 +80,25 @@ class MyDomeLeftPage extends StatelessWidget with CustomRadius, ColorsItems {
             child: Container(
               color: primaryColor,
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
                 decoration: BoxDecoration(
                     color: backgroudWhite,
                     borderRadius: BorderRadius.only(topLeft: radius60)),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CustomRow(
+                    const CustomRow(
                       leftData: "Explore Categories",
                     ),
                     const Row(
                       children: [
                         TopCard(),
-                        TopCard(),
-                        TopCard(),
-                        TopCard(),
                       ],
                     ),
-                    CustomRow(leftData: "Populer Search"),
-                    Row(
-                      children: [
-                        BottomCard(primaryColor: primaryColor),
-                        BottomCard(primaryColor: primaryColor),
-                      ],
-                    ),
+                    const CustomRow(leftData: "Populer Search"),
+                    ListView.builder(itemBuilder: (context, index) {
+                      return const Text("1");
+                    })
                   ],
                 ),
               ),
@@ -134,8 +121,7 @@ class TopCard extends StatelessWidget {
       elevation: 0,
       shape: StadiumBorder(),
       child: Padding(
-        padding:
-            EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+        padding: EdgeInsets.symmetric(vertical: 20, horizontal: 12),
         child: Column(
           children: [
             IconCard(
@@ -178,8 +164,19 @@ class BottomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("UI/UX Designer", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, wordSpacing: 20, height: 1.3), ),
-              Text("4 Job Opportunatiy", style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400, height: 3), ),
+              Text(
+                "UI/UX Designer",
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    wordSpacing: 20,
+                    height: 1.3),
+              ),
+              Text(
+                "4 Job Opportunatiy",
+                style: TextStyle(
+                    fontSize: 10, fontWeight: FontWeight.w400, height: 3),
+              ),
             ],
           ),
         ),
