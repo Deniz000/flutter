@@ -1,7 +1,8 @@
 # demo - 1 pages 
 
 
-<img src="../../assets/demo_one/page1.png" width=200>
-|
-<img src="../../assets/demo_one/page2.png" width=200>
+<p align="center">
 
+<img src="../demo_one/assets/sim2.png" width=200>
+<img src="../demo_one/assets/sim1.png" width=200>
+</p>

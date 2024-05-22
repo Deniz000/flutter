@@ -9,8 +9,8 @@ class MyDemoOne extends StatelessWidget with ColorsItems {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-  
-    List<ItemModel> lists = ItemModel.list as List<ItemModel>;
+
+    List<ItemModel> lists = ItemModel.list();
 
     return Scaffold(
       body: Stack(

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class MiddleCard extends StatelessWidget {
-  MiddleCard({super.key, required this.imageName, required this.action});
-  String imageName;
-  String action;
+  const MiddleCard({super.key, required this.imageName, required this.action});
+  final String imageName;
+  final String action;
 
   @override
   Widget build(BuildContext context) {

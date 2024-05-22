@@ -122,7 +122,7 @@ class MyCards extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 MiddleCard(imageName: "send-money", action: "Send"),
