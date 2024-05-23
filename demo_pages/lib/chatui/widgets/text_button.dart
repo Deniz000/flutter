@@ -7,39 +7,36 @@ class CustomTextButton extends StatefulWidget with PadingValues, ThemeColor {
     super.key,
     required this.name,
     required this.index,
-    required this.isSelected,
+    required this.pageController,
   });
+  final PageController pageController;
   final int index;
   final String name;
-  bool isSelected; //background için
 
   @override
   State<CustomTextButton> createState() => CustomTextButtonState();
 }
 
 class CustomTextButtonState extends State<CustomTextButton> {
-  
-  Color backgroundColor = Colors.transparent;
+  int _selectedItem = -1;
+  bool isSelected = false;
+  List<int> _items = [0, 1, 2];
 
-  void setSelectedItem(int value) {
-    setState(() {
-      switch (widget.index) {
-        case 1:
-          
-          break;
-        default:
-      }
-    });
-  }
-
+  void change() {}
   @override
   Widget build(BuildContext context) {
     return TextButton(
         onPressed: () {
+          setState(() {
+            widget.pageController.jumpToPage(widget.index);
+            _selectedItem = widget.index;
+          });
+          
         },
         style: TextButton.styleFrom(
-          backgroundColor:
-              (widget.isSelected) ? widget.secondColor : Colors.transparent,
+          backgroundColor: (_selectedItem == widget.index)
+              ? widget.secondColor
+              : Colors.transparent,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           padding: EdgeInsets.symmetric(

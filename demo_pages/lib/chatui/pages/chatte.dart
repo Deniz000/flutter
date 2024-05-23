@@ -1,6 +1,10 @@
 import 'package:demo_pages/chatui/models/model.dart';
 import 'package:demo_pages/chatui/utils/colors.dart';
 import 'package:demo_pages/chatui/utils/paddings.dart';
+import 'package:demo_pages/chatui/utils/person_list.dart';
+import 'package:demo_pages/chatui/widgets/calls_column.dart';
+import 'package:demo_pages/chatui/widgets/chats_column.dart';
+import 'package:demo_pages/chatui/widgets/person_list_view.dart';
 import 'package:demo_pages/chatui/widgets/text_button.dart';
 import 'package:flutter/material.dart';
 
@@ -11,55 +15,15 @@ class ChatteAppUI extends StatefulWidget {
   State<ChatteAppUI> createState() => _ChatteAppUIState();
 }
 
-class _ChatteAppUIState extends State<ChatteAppUI> with ThemeColor {
+class _ChatteAppUIState extends State<ChatteAppUI> with ThemeColor, PersonList {
   @override
   Widget build(BuildContext context) {
+    final controller = PageController();
+
     List<String> list = [
       "Chats",
       "Status",
       "Calls",
-    ];
-    List<Person> people = [
-      Person(
-        imgName: "w1",
-        name: "Bella",
-        text: "Typing...",
-        hour: "14.16",
-      ),
-      Person(
-        imgName: "m2",
-        name: "Bee",
-        text: "Ok.. Then see you later",
-        hour: "11.36",
-        data: Icons.looks_two_sharp,
-      ),
-      Person(
-        imgName: "w2",
-        name: "Anne",
-        text: "Where are you?",
-        hour: "20.30",
-        data: Icons.looks_4_sharp,
-      ),
-      Person(
-        imgName: "w3",
-        name: "Mommy",
-        text: "Don't forget to get an bread",
-        hour: "08.30",
-        data: Icons.looks_one,
-      ),
-      Person(
-        imgName: "m1",
-        name: "Daddy",
-        text: "I'll send you some money tomorrow.",
-        hour: "17.24",
-      ),
-      Person(
-        imgName: "m3",
-        name: "Boss",
-        text: "Thank you Sir!",
-        hour: "07.42",
-        data: Icons.done_all_rounded,
-      ),
     ];
 
     return Scaffold(
@@ -100,88 +64,68 @@ class _ChatteAppUIState extends State<ChatteAppUI> with ThemeColor {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: List.generate(3, (index) {
-              setState(() {
-                print("çalıştı $index");
-              });
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 5),
-                child: CustomTextButton(
-                  name: list[index],
-                  index: index,
-                  isSelected: false,
-                ),
-              );
-            }),
+            children: listGenerate(controller, list),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              decoration: BoxDecoration(
-                  color: whiteTone, borderRadius: BorderRadius.circular(30)),
-              child: Column(
-                children: [
-                  CustomRow(
-                    primaryColor: primaryColor,
-                    text: "Recent Chats",
-                    icon: Icons.person_search_outlined,
-                  ),
-                  CahtsListView(
-                    people: people,
-                    height: 350,
-                  ),
-                  CustomRow(
-                    primaryColor: primaryColor,
-                    text: "All Chats",
-                  ),
-                  CahtsListView(
-                    people: people.reversed.toList(),
-                    height: 150,
-                  ),
-                ],
-              ),
-            ),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                decoration: BoxDecoration(
+                    color: whiteTone, borderRadius: BorderRadius.circular(30)),
+                child: PageView(
+                  controller: controller,
+                  children: [
+                    ChatsColumn(
+                        primaryColor: primaryColor, people: chatsPersonList),
+                    StatusColumn(
+                        statusPersonList: statusPersonList,
+                        primaryColor: primaryColor),
+                    CallsColumn(
+                        primaryColor: primaryColor, people: callsPersonList),
+                  ],
+                )),
           )
         ],
       ),
     );
   }
+
+  List<Widget> listGenerate(PageController controller, List<String> list) {
+    return List.generate(3, (index) {
+      return Padding(
+        padding: const EdgeInsets.symmetric(vertical: 5),
+        child: CustomTextButton(
+          pageController: controller,
+          name: list[index],
+          index: index,
+        ),
+      );
+    });
+  }
 }
 
-class CahtsListView extends StatelessWidget {
-  const CahtsListView({
+class StatusColumn extends StatelessWidget {
+  const StatusColumn({
     super.key,
-    required this.people,
-    required this.height,
+    required this.statusPersonList,
+    required this.primaryColor,
   });
-  final double height;
-  final List<Person> people;
+
+  final List<Person> statusPersonList;
+  final Color primaryColor;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: height,
-      child: ListView.builder(
-          itemCount: 4,
-          itemBuilder: (context, index) {
-            return ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-              leading: Image.asset(getPath(people[index].imgName)),
-              title: Text(people[index].name),
-              subtitle: Text(people[index].text),
-              trailing: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Icon(people[index].data ?? null),
-                  Text(people[index].hour),
-                ],
-              ),
-            );
-          }),
+    return Column(
+      children: [
+        PersonListView(count: 1, people: statusPersonList, height: 100),
+        CustomRow(primaryColor: primaryColor, text: "Recent updates"),
+        PersonListView(
+            count: 5, people: statusPersonList.reversed.toList(), height: 400),
+      ],
     );
   }
 }
