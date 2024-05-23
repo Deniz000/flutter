@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning1/101/icon_learn.dart';
 import 'package:learning1/101/navigate_detail.dart';
-import 'package:learning1/101/page_view.dart';
-import 'package:learning1/demo/color_demos.dart';
-import 'package:learning1/demo/first_demo_app.dart';
 
 class NavigationLearn extends StatefulWidget {
   const NavigationLearn({super.key});
@@ -21,13 +17,13 @@ class _NavigationLearnState extends State<NavigationLearn>
         actions: [],
       ),
       body: ListView.builder(itemBuilder: (context, index) {
-        return Placeholder(color: Colors.red);
+        return const Placeholder(color: Colors.red);
       }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          navigatorToWidget(context, NavigateDetail());
+          navigatorToWidget(context, const NavigateDetail());
         },
-        child: Icon(Icons.arrow_right_rounded),
+        child: const Icon(Icons.arrow_right_rounded),
       ),
     );
   }

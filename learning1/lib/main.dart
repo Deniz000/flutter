@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning1/202/tabbar_learn.dart';
 import 'package:learning1/my_demos/my_demo_one.dart';
 
 void main() { 
@@ -13,6 +14,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData.light().copyWith(
+        bottomAppBarTheme: const BottomAppBarTheme(
+          shape: CircularNotchedRectangle(),
+        ),
+        tabBarTheme: const TabBarTheme(
+         indicatorColor: Colors.green,
+         indicatorSize: TabBarIndicatorSize.tab,
+              labelColor: Colors.green,
+              unselectedLabelColor: Colors.grey,
+        ),
         appBarTheme:  AppBarTheme(
           backgroundColor: Colors.green[200],
           elevation: 0,
@@ -32,7 +42,7 @@ class MyApp extends StatelessWidget {
         )
         // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       ),
-      home: MyDemoOne(),
+      home: const TabbarLearn(),
     );
   }
 }
