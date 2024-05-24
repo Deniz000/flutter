@@ -42,7 +42,7 @@ class _TabbarLearnState extends State<TabbarLearn> {
             ),
           ),
           appBar: AppBar(),
-          body: TabBarView(physics: NeverScrollableScrollPhysics(), children: [
+          body: TabBarView(physics: const NeverScrollableScrollPhysics(), children: [
             Container(
               color: Colors.pink,
             ),
@@ -61,7 +61,3 @@ class _TabbarLearnState extends State<TabbarLearn> {
 }
 
 enum _MyTabViews { home, settings, favorite, profile }
-
-extension _MyTabViewExtension on _MyTabViews {
-  void name(params) {}
-}
