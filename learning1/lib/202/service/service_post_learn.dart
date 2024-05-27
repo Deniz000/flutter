@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:learning1/202/comments_learn.dart';
-import 'package:learning1/202/post_model.dart';
-import 'package:learning1/202/post_service.dart';
+import 'package:learning1/202/service/comments_learn.dart';
+import 'package:learning1/202/service/post_model.dart';
+import 'package:learning1/202/service/post_service.dart';
 
 class ServicePostLearn extends StatefulWidget {
   const ServicePostLearn({super.key});
@@ -147,7 +147,7 @@ class ListCard extends StatelessWidget {
         ),
         title: Text(
           _model?.title ?? "",
-          style: const TextStyle(color: Colors.green),
+          style: Theme.of(context).textTheme.headlineLarge?.copyWith(color: Theme.of(context).colorScheme.onPrimary),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

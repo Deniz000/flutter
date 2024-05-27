@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:learning1/202/comment_model.dart';
-import 'package:learning1/202/post_model.dart';
+import 'package:learning1/202/service/comment_model.dart';
+import 'package:learning1/202/service/post_model.dart';
 
 abstract class IPostService {
   Future<bool> addPost(PostModel postModel);
