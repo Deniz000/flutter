@@ -1,7 +1,5 @@
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:learning1/202/comments_learn.dart';
 import 'package:learning1/202/post_model.dart';
 import 'package:learning1/202/post_service.dart';
 
@@ -16,10 +14,13 @@ class _ServicePostLearnState extends State<ServicePostLearn> {
   List<PostModel>? _list;
   bool isLoading = false;
 
-  late final PostService _postService;
+  late final IPostService _postService;
 
+  // ignore: unused_field
   final TextEditingController _titleController = TextEditingController();
+  // ignore: unused_field
   final TextEditingController _bodyController = TextEditingController();
+  // ignore: unused_field
   final TextEditingController _idController = TextEditingController();
 
   void changeLoading() {
@@ -32,6 +33,7 @@ class _ServicePostLearnState extends State<ServicePostLearn> {
   void initState() {
     //await ve initState() ve get data yı araştır
     super.initState();
+    _postService = PostService();
     fetchData();
   }
 
@@ -41,11 +43,23 @@ class _ServicePostLearnState extends State<ServicePostLearn> {
     changeLoading();
   }
 
+  Future<void> addData(PostModel model) async {
+    changeLoading();
+    await _postService.addPost(model);
+    changeLoading();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: ListCard(model: _list?[0]),
+      body: ListView.builder(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        itemCount: _list?.length ?? 0,
+        itemBuilder: (context, index) {
+          return ListCard(model: _list?[index]);
+        },
+      ),
     );
     // PostForm(titleController: _titleController, bodyController: _bodyController, idController: _idController, isLoading: isLoading));
   }
@@ -57,6 +71,7 @@ class PostForm extends StatelessWidget {
     required TextEditingController titleController,
     required TextEditingController bodyController,
     required TextEditingController idController,
+    required this.onSubmit,
     required this.isLoading,
   })  : _titleController = titleController,
         _bodyController = bodyController,
@@ -66,6 +81,7 @@ class PostForm extends StatelessWidget {
   final TextEditingController _bodyController;
   final TextEditingController _idController;
   final bool isLoading;
+  final Function(PostModel) onSubmit;
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +91,7 @@ class PostForm extends StatelessWidget {
           controller: _titleController,
           textInputAction: TextInputAction.next,
           keyboardType: TextInputType.text,
-          decoration: InputDecoration(label: Text("Title")),
+          decoration: const InputDecoration(label: Text("Title")),
         ),
         TextField(
           textInputAction: TextInputAction.next,
@@ -100,6 +116,7 @@ class PostForm extends StatelessWidget {
                           body: _bodyController.text,
                           title: _titleController.text,
                           id: int.tryParse(_idController.text));
+                      onSubmit(model);
                     }
                   },
             child: const Text("send"))
@@ -120,10 +137,17 @@ class ListCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
-        leading: const Icon(Icons.circle),
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => CommentsLearnView(postId: _model?.id)));
+        },
+        leading: Icon(
+          Icons.wb_cloudy_sharp,
+          color: Colors.green,
+        ),
         title: Text(
           _model?.title ?? "",
-          style: const TextStyle(color: Colors.lightBlueAccent),
+          style: const TextStyle(color: Colors.green),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
