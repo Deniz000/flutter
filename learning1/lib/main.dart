@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning1/202/tabbar_learn.dart';
-import 'package:learning1/my_demos/my_demo_one.dart';
+import 'package:learning1/202/service_post_learn.dart';
 
 void main() { 
   runApp(const MyApp());
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
         )
         // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       ),
-      home: const TabbarLearn(),
+      home: const ServicePostLearn(),
     );
   }
 }
