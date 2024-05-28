@@ -1,4 +1,5 @@
 import 'package:demo_pages/chatui/pages/chatte.dart';
+import 'package:demo_pages/todoapp/screens/todo_screen.dart';
 
 import 'package:flutter/material.dart';
 
@@ -15,11 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          scaffoldBackgroundColor: Colors.white,
-        useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          color: Color.fromARGB(255, 231, 231, 231),
+          elevation: 3,
+        )
       ),
-      home: ChatteAppUI(),
+      home: ToDoApp(),
     );
   }
 }
