@@ -1,5 +1,6 @@
 import 'package:demo_pages/todoapp/constants/colors.dart';
 import 'package:demo_pages/todoapp/models/todo_model.dart';
+import 'package:demo_pages/todoapp/strings/app_strings.dart';
 import 'package:demo_pages/todoapp/widgets/todo_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -12,24 +13,19 @@ class ToDoApp extends StatefulWidget {
 
 class _ToDoAppState extends State<ToDoApp> {
   List<Todo> todos = Todo.getList();
-  List<Todo> _foundToDo = [];
+  final List<Todo> _foundTodos = Todo.getList();
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _searchController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _foundToDo = todos;
-  }
 
   void filteredToDo(String searchText) {
     List<Todo> result = [];
     if (searchText.isNotEmpty) {
-      result = todos
+      result = _foundTodos
           .where((todo) => todo.text!.toLowerCase().contains(searchText))
           .toList();
     } else {
-      todos;
+      result = _foundTodos; // burada orjinal listeyi kopyalıyor, bu yüzden 
+      //sislinen öğeler görünmüyor, delete _found için de remove işlemi yapacağız
     }
     setState(() {
       todos = result;
@@ -39,6 +35,7 @@ class _ToDoAppState extends State<ToDoApp> {
   void deleteItem(int id) {
     setState(() {
       todos.removeWhere((todo) => todo.id == id);
+      _foundTodos.removeWhere((todo) => todo.id == id);
     });
   }
 
@@ -64,7 +61,7 @@ class _ToDoAppState extends State<ToDoApp> {
           size: 30,
           color: darkCharcoal,
         ),
-        title: const Text("TODO APP"),
+        title: const Text(AppStrings.toDoApp),
       ),
       body: Stack(
         children: [
@@ -84,21 +81,21 @@ class _ToDoAppState extends State<ToDoApp> {
                         child: TextField(
                           onChanged: (text) => filteredToDo(text),
                           controller: _searchController,
-                          decoration: const InputDecoration(
-                              icon: Icon(
+                          decoration: InputDecoration(
+                              icon: const Icon(
                                 Icons.search,
                                 color: darkCharcoal,
                               ),
-                              hintText: "Search",
-                              enabledBorder: UnderlineInputBorder(
+                              hintText: AppStrings.search,
+                              enabledBorder: const UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.transparent)),
-                              focusedBorder: UnderlineInputBorder(
+                              focusedBorder: const UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Colors.transparent))),
                         )),
                     const Text(
-                      "All ToDos",
+                      AppStrings.allToDos,
                       style:
                           TextStyle(fontSize: 30, fontWeight: FontWeight.w500),
                     ),
@@ -122,27 +119,26 @@ class _ToDoAppState extends State<ToDoApp> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 25, left: 20, right: 20),
+              padding: pagePaddingValue(),
               child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
                     child: Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
                         boxShadow: const [
                           BoxShadow(
                             color: Colors.grey,
                             blurRadius: 10,
                           )
-                        ],
-                        borderRadius: BorderRadius.circular(15),
-                      ),
+                        ],),
                       child: TextField(
                         controller: _controller,
-                        decoration: const InputDecoration(
-                          hintText: 'Enter text',
+                        decoration: InputDecoration(
+                          hintText: AppStrings.enterText,
                           focusedBorder: InputBorder.none,
                           border: InputBorder.none,
                         ),
@@ -150,7 +146,7 @@ class _ToDoAppState extends State<ToDoApp> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10, bottom: 8),
+                    padding: const EdgeInsets.only(left: 8),
                     child: FloatingActionButton(
                       backgroundColor: lightlishBlue,
                       onPressed: () {
@@ -159,7 +155,7 @@ class _ToDoAppState extends State<ToDoApp> {
                       child: const Icon(
                         Icons.add,
                         size: 40,
-                        color: Colors.white,
+                        color: whiteColor,
                       ),
                     ),
                   ),

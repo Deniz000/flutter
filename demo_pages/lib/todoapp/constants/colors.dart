@@ -5,5 +5,6 @@ const Color lightlishBlue = Color.fromARGB(255, 68, 124, 253);
 
 const Color darkCharcoal = Color.fromARGB(255, 53, 49, 49);
 const Color millionGrey =  Color.fromARGB(255, 231, 231, 231);
+const Color whiteColor =  Colors.white;
 
 const Color backgroundColor = Color.fromARGB(255, 255, 238, 239);
