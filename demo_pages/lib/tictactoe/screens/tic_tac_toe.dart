@@ -1,5 +1,4 @@
 import 'package:demo_pages/tictactoe/utils/colors.dart';
-import 'package:demo_pages/todoapp/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 //https://www.youtube.com/watch?v=ZWyeW6VWJC8
@@ -13,7 +12,8 @@ class TicTacToe extends StatefulWidget {
 class _TicTacToeState extends State<TicTacToe> {
   bool xTurn = false;
   String? winner;
-  List<String> displayXO = ["", "", "", "", "", "", "", "", ""];
+  int xScore = 0, oScore = 0;
+  List<String> displayXO = List.filled(9, "");
 
   void turnIt(int index) {
     if (displayXO[index] == "") {
@@ -23,7 +23,8 @@ class _TicTacToeState extends State<TicTacToe> {
       if (winner != null) {
         _showDialog(winner);
       }
-      print(winner);
+      if (winner == "X") xScore++;
+      if (winner == "O") oScore++;
       setState(() {});
     }
   }
@@ -44,7 +45,7 @@ class _TicTacToeState extends State<TicTacToe> {
           list[combo[0]] == list[combo[2]] &&
           list[combo[0]].isNotEmpty) {
         return list[combo[0]];
-      }else if (!list.contains("")) {
+      } else if (!list.contains("")) {
         return "Nobody";
       }
     }
@@ -58,19 +59,30 @@ class _TicTacToeState extends State<TicTacToe> {
           return AlertDialog(
             title: Text(
               "The winner is $winner",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25,
               ),
             ),
-            content: Text(":)"),
+            content: const Text(":)"),
             actions: [
               ElevatedButton(
                   onPressed: () {
                     resetGame();
                     Navigator.of(context).pop();
                   },
-                  child: Text(
+                  child: const Text(
                     "Restart",
+                    style: TextStyle(fontSize: 20),
+                  )),
+              ElevatedButton(
+                  onPressed: () {
+                    resetGame();
+                    xScore = 0;
+                    oScore = 0;
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text(
+                    "Finish",
                     style: TextStyle(fontSize: 20),
                   )),
             ],
@@ -117,7 +129,11 @@ class _TicTacToeState extends State<TicTacToe> {
                       turnIt: turnIt, index: index, xo: displayXO[index]);
                 }),
           ),
-          const Expanded(flex: 2, child: Text("TicTacToe")),
+          Expanded(
+              flex: 2,
+              child: winner != null
+                  ? Text("X: $xScore  0: $oScore")
+                  : const Text("going...")),
         ],
       ),
     );
