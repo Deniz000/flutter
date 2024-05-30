@@ -1,6 +1,4 @@
-import 'package:demo_pages/chatui/pages/chatte.dart';
-import 'package:demo_pages/todoapp/screens/todo_screen.dart';
-
+import 'package:demo_pages/tictactoe/screens/tic_tac_toe.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +19,7 @@ class MyApp extends StatelessWidget {
           elevation: 3,
         )
       ),
-      home: ToDoApp(),
+      home: const TicTacToe(),
     );
   }
 }
