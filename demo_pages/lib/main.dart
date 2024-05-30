@@ -1,4 +1,4 @@
-import 'package:demo_pages/tictactoe/screens/tic_tac_toe.dart';
+import 'package:demo_pages/weatherapp/screens/weather_app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,11 +15,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          color: Color.fromARGB(255, 231, 231, 231),
-          elevation: 3,
-        )
+          color: Color.fromARGB(200, 231, 231, 231),
+          elevation: 0,
+        ),
+        scaffoldBackgroundColor: Color.fromARGB(255, 231, 224, 251),
+
       ),
-      home: const TicTacToe(),
+      home: const WaetherApp0(),
     );
   }
 }
