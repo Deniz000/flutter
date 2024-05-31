@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:learning1/202/animated_lear.dart';
+import 'package:learning1/202/image_learn.dart';
 import 'package:learning1/202/theme/lisght_theme.dart';
 import 'package:learning1/demo/password_textfield.dart';
 
@@ -43,7 +45,7 @@ class MyApp extends StatelessWidget {
       //   )
       //   // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       // ),
-      home: const PasswordTextfield(),
+      home: const AnimatedLearn(),
     );
   }
 }
