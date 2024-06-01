@@ -14,7 +14,7 @@ class _ListViewLearnState extends State<ListViewLearn> {
       appBar: AppBar(),
       body: ListView(
         children: [
-          FittedBox(child: Text("Merhabalar efendim")),
+          const FittedBox(child: Text("Merhabalar efendim")),
           // Container(
           //   color: Colors.red,
           //   height: 400,
@@ -29,10 +29,10 @@ class _ListViewLearnState extends State<ListViewLearn> {
                 Container(width: 200, color: Colors.amber[50],),
             ],),
           ),
-          Divider(color: Colors.deepPurple,),
+          const Divider(color: Colors.deepPurple,),
           Container(color: Colors.green,
           height: 400,),
-          IconButton(onPressed: (){}, icon: Icon(Icons.close)),
+          IconButton(onPressed: (){}, icon: const Icon(Icons.close)),
         ],
       ),
     );

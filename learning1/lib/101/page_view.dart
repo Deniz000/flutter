@@ -28,24 +28,24 @@ class _PageViewLearnState extends State<PageViewLearn> {
           FloatingActionButton(
             onPressed: () {
               _pageController.previousPage(
-                  duration: Duration(seconds: 1), curve: Curves.ease);
+                  duration: const Duration(seconds: 1), curve: Curves.ease);
             },
-            child: Icon(Icons.chevron_left),
+            child: const Icon(Icons.chevron_left),
           ),
           Text((_currentPage+1).toString()),
           FloatingActionButton(
             onPressed: () {
               _pageController.nextPage(
-                  duration: Duration(seconds: 1), curve: Curves.ease);
+                  duration: const Duration(seconds: 1), curve: Curves.ease);
             },
-            child: Icon(Icons.chevron_right),
+            child: const Icon(Icons.chevron_right),
           ),
         ],
       ),
       body: PageView(
         onPageChanged: _updateOageIndex,
         controller: _pageController,
-        children: [
+        children: const [
           ListTileLearn(),
           ListTileLearn(),
           ContainerView(),

@@ -15,9 +15,9 @@ class ListTileLearn  extends StatelessWidget {
           children: [
             Text("Rehberim",
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.green[700]),),
-            _ListCard(personName: "Melda Hanım",),
-            _ListCard(personName: "Muhtar Bey",),
-            _ListCard(personName: "Bakkal Amca",),
+            const _ListCard(personName: "Melda Hanım",),
+            const _ListCard(personName: "Muhtar Bey",),
+            const _ListCard(personName: "Bakkal Amca",),
           ],
         ),
       ),

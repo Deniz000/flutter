@@ -7,7 +7,7 @@ class IndicatorLeran extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [CircularProgressIndicator()],
+        actions: const [CircularProgressIndicator()],
       ),
       body: const Column(
           children : [LinearProgressIndicator(),]

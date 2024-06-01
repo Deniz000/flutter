@@ -15,8 +15,8 @@ class _NavigateDetailState extends State<NavigateDetail> {
       body: Center(
         child: ElevatedButton.icon(
           onPressed: () {},
-          icon: Icon(Icons.check),
-          label: Text("Onayla"),
+          icon: const Icon(Icons.check),
+          label: const Text("Onayla"),
         ),
       ),
     );

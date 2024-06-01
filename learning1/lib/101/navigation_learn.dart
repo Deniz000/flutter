@@ -13,9 +13,7 @@ class _NavigationLearnState extends State<NavigationLearn>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [],
-      ),
+      appBar: AppBar(),
       body: ListView.builder(itemBuilder: (context, index) {
         return const Placeholder(color: Colors.red);
       }),

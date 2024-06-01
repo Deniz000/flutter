@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning1/202/form_learn_view.dart';
-import 'package:learning1/202/state_manage/state_manage.dart';
+import 'package:learning1/202/cache/shared_preference_learn.dart';
 import 'package:learning1/202/theme/lisght_theme.dart';
 
 void main() { 
@@ -44,7 +43,7 @@ class MyApp extends StatelessWidget {
       //   )
       //   // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       // ),
-      home: const FormLearnView(),
+      home: const SharedLearn(),
     );
   }
 }

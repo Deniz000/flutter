@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ListViewBuilderLearn extends StatefulWidget {
@@ -14,7 +13,6 @@ class _ListViewBuilderLearnState extends State<ListViewBuilderLearn> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(itemBuilder: (context, index) {
-        print(index);
         return Column(
           children: [
             Container(height: 200,color: Colors.red,),
