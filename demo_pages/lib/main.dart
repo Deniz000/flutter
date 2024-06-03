@@ -1,4 +1,4 @@
-import 'package:demo_pages/learn_lottie/bookmarked.dart';
+import 'package:demo_pages/weatherapp/screens/weather_app.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color.fromARGB(255, 231, 224, 251),
 
       ),
-      home: const LottieLearn(),
+      home: const WaetherApp0(),
     );
   }
 }
