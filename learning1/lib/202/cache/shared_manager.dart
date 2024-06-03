@@ -18,9 +18,19 @@ class SharedManager {
     return (preferences?.setInt(key, value) ?? false);
   }
 
+  Future<bool> saveStringItems(String key, List<String> value) async {
+    checkPreferences();
+    return (preferences?.setStringList(key, value) ?? false);
+  }
+
   int? getInt(String key) {
     checkPreferences();
     return preferences?.getInt(key);
+  }
+
+  List<String>? getStringItems(String key) {
+    checkPreferences();
+    return preferences?.getStringList(key);
   }
 
   Future<bool> removeItem(String key) async {
