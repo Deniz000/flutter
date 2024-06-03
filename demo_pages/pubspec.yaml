@@ -69,7 +69,7 @@ flutter:
       - lib/walletappui/icons/
       - lib/demo_one/assets/
       - lib/chatui/avatars/
-      - lib/weatherapp/assets
+      - lib/weatherapp/assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
