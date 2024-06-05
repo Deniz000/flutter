@@ -1,4 +1,4 @@
-import 'package:demo_pages/splash_screens/splash_screen.dart';
+import 'package:demo_pages/onboardings/onboarding.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,10 +18,10 @@ class MyApp extends StatelessWidget {
           color: Color.fromARGB(200, 231, 231, 231),
           elevation: 0,
         ),
-        scaffoldBackgroundColor: Color.fromARGB(255, 231, 224, 251),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 231, 224, 251),
 
       ),
-      home: const SplashScreen(),
+      home: const OnBoardingScreen(),
     );
   }
 }
