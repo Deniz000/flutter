@@ -1,6 +1,7 @@
 import 'package:demo_pages/recipe-app/model/recipe.dart';
 import 'package:demo_pages/recipe-app/service/recipe_service.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class RecipeApp extends StatefulWidget {
   const RecipeApp({super.key});
@@ -17,7 +18,8 @@ class _RecipeAppState extends State<RecipeApp> {
   @override
   void initState() {
     super.initState();
-    _recipeService = RecipeService();
+    _recipeService =
+        RecipeService('c29be60dd5msh2720c960be2275bp187898jsndb1c74097491');
     fetchRecipe();
   }
 
@@ -57,9 +59,10 @@ class _RecipeAppState extends State<RecipeApp> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: "Ana Sayfa"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.favorite), label: "Favoriler"),
+                icon: Icon(Icons.favorite), label: "Favorilerim"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.kitchen), label: "Siparişler"),
+                icon: Icon(Icons.kitchen), label: "Siparişlerim"),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
           ],
         ),
         body: (_recipes != null && _recipes.isNotEmpty)
@@ -76,14 +79,33 @@ class _RecipeAppState extends State<RecipeApp> {
   }
 }
 
-class ListItemSheme extends StatelessWidget {
-  const ListItemSheme({
+// ignore: must_be_immutable
+class ListItemSheme extends StatefulWidget {
+  ListItemSheme({
     super.key,
     required Recipe recipes,
   }) : _recipes = recipes;
 
   final Recipe _recipes;
 
+  @override
+  State<ListItemSheme> createState() => _ListItemShemeState();
+}
+
+class _ListItemShemeState extends State<ListItemSheme>
+    with TickerProviderStateMixin {
+  late AnimationController _controller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller =
+        AnimationController(vsync: this, duration: const Duration(microseconds: 1));
+  }
+
+
+  bool bookmarked = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -95,9 +117,27 @@ class ListItemSheme extends StatelessWidget {
           ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: Image.network(
-                _recipes.image,
+                widget._recipes.image,
                 fit: BoxFit.cover,
               )),
+          Positioned(
+            top: 2,
+            right: 1,
+            child: GestureDetector(
+              onTap: () {
+                if (bookmarked) {
+                  _controller.reverse();
+                  bookmarked = !bookmarked;
+                } else {
+                  _controller.forward();
+                  bookmarked = !bookmarked;
+                }
+              },
+              child: Lottie.network(
+                  controller: _controller,
+                  "https://lottie.host/3b33812b-001b-40a6-a086-a40caeea0a74/rqsTnR1hru.json"),
+            ),
+          ),
           Positioned(
               bottom: 50,
               left: 10,
@@ -107,7 +147,7 @@ class ListItemSheme extends StatelessWidget {
                       70, // Metnin maksimum genişliğini ayarla
                 ),
                 child: Text(
-                  _recipes.name,
+                  widget._recipes.name,
                   maxLines: 2,
                   style: const TextStyle(
                       color: Colors.white,
@@ -128,7 +168,7 @@ class ListItemSheme extends StatelessWidget {
                     color: Colors.yellow,
                   ),
                   Text(
-                    _recipes.rating.toString(),
+                    widget._recipes.rating.toString(),
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 15,
@@ -145,7 +185,7 @@ class ListItemSheme extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    _recipes.totalTime,
+                    widget._recipes.totalTime,
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 15,

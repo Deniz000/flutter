@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'dart:io';
 
 import 'package:demo_pages/recipe-app/model/recipe.dart';
@@ -11,7 +10,9 @@ abstract class IRecipeService {
 }
 
 class RecipeService extends IRecipeService {
-  final apiKey = 'c29be60dd5msh2720c960be2275bp187898jsndb1c74097491';
+  final String apiKey;
+
+  RecipeService(this.apiKey);
 
   var uri = Uri.https("yummly2.p.rapidapi.com", "/feeds/list", {
     "limit": "24",
@@ -31,8 +32,8 @@ class RecipeService extends IRecipeService {
     List<Recipe> recipes = [];
 
     if (datas["feed"] is List) {
-      for(var item in datas["feed"]) {
-      recipes.add(Recipe.fromJson(item["content"]["details"]));
+      for (var item in datas["feed"]) {
+        recipes.add(Recipe.fromJson(item["content"]["details"]));
       }
     }
     // List<String> recipes = [];

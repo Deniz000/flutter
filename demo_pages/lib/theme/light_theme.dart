@@ -8,32 +8,41 @@ class LightTheme {
 
   LightTheme() {
     theme = ThemeData(
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.transparent,
-        elevation: 1,
-        systemOverlayStyle: SystemUiOverlayStyle.dark,
-        iconTheme: IconThemeData(color: _lightColors.foodAppUnselectedItem, size: 34),
-        titleTextStyle: TextStyle(color: _lightColors.foodAppSecondary, fontSize: 25,)
-      ),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-        elevation: 1,
-        selectedLabelStyle: TextStyle(color: _lightColors.foodAppSecondary),
-        selectedIconTheme: bottomItemTheme(_lightColors.foodAppSecondary,),
-        unselectedIconTheme: bottomItemTheme(_lightColors.foodAppUnselectedItem)
-      )
-      );
+        appBarTheme: AppBarTheme(
+            backgroundColor: _lightColors.foodAppYellow,
+            elevation: 1,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,
+            iconTheme: bottomItemTheme(_lightColors.foodAppDarkBlue),
+            titleTextStyle: TextStyle(
+              color: _lightColors.foodAppDarkBlue,
+              fontSize: 25,
+            )),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          type: BottomNavigationBarType.fixed,
+            elevation: 1,
+            selectedItemColor: _lightColors.foodAppDarkBlue,
+            showUnselectedLabels: true,
+            unselectedItemColor: _lightColors.foodAppUnselectedItem,
+            selectedIconTheme: bottomItemTheme(
+              _lightColors.foodAppDarkBlue,
+            ),
+            unselectedIconTheme:
+                bottomItemTheme(_lightColors.foodAppUnselectedItem)));
   }
 
   IconThemeData bottomItemTheme(Color color) {
     return IconThemeData(
-        color: color,
-        size: 32,
-        shadows: const [Shadow(color: Colors.grey, offset: Offset(1, 2), blurRadius: 5)]
-      );
+      color: color, 
+      size: 32, shadows: const [
+      Shadow(color: Colors.black54, offset: Offset(1, 1), blurRadius: 5)
+    ]);
   }
 }
 
 class _LightThemeColor {
   Color foodAppSecondary = const Color.fromARGB(255, 41, 110, 75);
-  Color foodAppUnselectedItem = Color.fromARGB(255, 171, 173, 172);
+  Color foodAppBlue = const Color.fromARGB(255, 153,204,255);
+  Color foodAppYellow = const Color.fromARGB(255, 255,217,102);
+  Color foodAppDarkBlue = const Color.fromARGB(255, 43,44,65);
+  Color foodAppUnselectedItem = const Color.fromARGB(255, 171, 173, 172);
 }
