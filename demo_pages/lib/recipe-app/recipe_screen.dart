@@ -1,0 +1,169 @@
+import 'package:demo_pages/recipe-app/model/recipe.dart';
+import 'package:demo_pages/recipe-app/service/recipe_service.dart';
+import 'package:flutter/material.dart';
+
+class RecipeApp extends StatefulWidget {
+  const RecipeApp({super.key});
+
+  @override
+  State<RecipeApp> createState() => _RecipeAppState();
+}
+
+class _RecipeAppState extends State<RecipeApp> {
+  bool isLoading = false;
+  late final IRecipeService _recipeService;
+  int _currentSelectecItem = 0;
+  late final List<Recipe>? _recipes;
+  @override
+  void initState() {
+    super.initState();
+    _recipeService = RecipeService();
+    fetchRecipe();
+  }
+
+  void changeLoading() {
+    setState(() {
+      isLoading = !isLoading;
+    });
+  }
+
+  Future<void> fetchRecipe() async {
+    changeLoading();
+    try {
+      print("girdi");
+      _recipes = await _recipeService.getRecipeList();
+      print("çıktı");
+      setState(() {});
+    } catch (e) {
+      print('Error fetching recipes: $e');
+    }
+    changeLoading();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          leading: const Icon(Icons.menu_open_outlined),
+          title: const Text("Recipes"),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentSelectecItem,
+          onTap: (value) {
+            setState(() {
+              _currentSelectecItem = value;
+            });
+          },
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Ana Sayfa"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.favorite), label: "Favoriler"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.kitchen), label: "Siparişler"),
+          ],
+        ),
+        body: (_recipes != null && _recipes.isNotEmpty)
+            ? Container(
+                height: double.infinity,
+                child: ListView.builder(
+                  itemCount: _recipes.length,
+                  itemBuilder: (context, index) {
+                    return ListItemSheme(recipes: _recipes[index]);
+                  },
+                ),
+              )
+            : const CircularProgressIndicator());
+  }
+}
+
+class ListItemSheme extends StatelessWidget {
+  const ListItemSheme({
+    super.key,
+    required Recipe recipes,
+  }) : _recipes = recipes;
+
+  final Recipe _recipes;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+      child: SizedBox(
+        width: double.infinity,
+        height: 200,
+        child: Stack(fit: StackFit.expand, clipBehavior: Clip.none, children: [
+          ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Image.network(
+                _recipes.image,
+                fit: BoxFit.cover,
+              )),
+          Positioned(
+              bottom: 50,
+              left: 10,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.of(context).size.width -
+                      70, // Metnin maksimum genişliğini ayarla
+                ),
+                child: Text(
+                  _recipes.name,
+                  maxLines: 2,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      shadows: [
+                        Shadow(color: Colors.black54, offset: Offset(1, 1))
+                      ]),
+                ),
+              )),
+          Positioned(
+              bottom: 25,
+              left: 10,
+              child: Row(
+                children: [
+                  const Icon(
+                    Icons.star,
+                    color: Colors.yellow,
+                  ),
+                  Text(
+                    _recipes.rating.toString(),
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(color: Colors.black54, offset: Offset(1, 1))
+                        ]),
+                  ),
+                ],
+              )),
+          Positioned(
+              bottom: 25,
+              right: 10,
+              child: Row(
+                children: [
+                  Text(
+                    _recipes.totalTime,
+                    style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontWeight: FontWeight.bold,
+                        shadows: [
+                          Shadow(color: Colors.black54, offset: Offset(1, 1))
+                        ]),
+                  ),
+                  const Icon(
+                    Icons.hourglass_bottom_rounded,
+                    color: Colors.yellow,
+                  ),
+                ],
+              ))
+        ]),
+      ),
+    );
+  }
+}
+
+Color foodAppSecondary() => const Color.fromARGB(255, 41, 110, 75);

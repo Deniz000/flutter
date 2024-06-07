@@ -1,4 +1,5 @@
-import 'package:demo_pages/onboardings/onboarding.dart';
+import 'package:demo_pages/recipe-app/recipe_screen.dart';
+import 'package:demo_pages/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,15 +14,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        appBarTheme: const AppBarTheme(
-          color: Color.fromARGB(200, 231, 231, 231),
-          elevation: 0,
-        ),
-        scaffoldBackgroundColor: const Color.fromARGB(255, 231, 224, 251),
-
-      ),
-      home: const OnBoardingScreen(),
+      theme: LightTheme().theme,
+      // ThemeData(
+      //   appBarTheme: const AppBarTheme(
+      //     color: Colors.white,
+      //     elevation: 0,
+      //   ),
+      //   scaffoldBackgroundColor: Colors.white,
+      // ),
+      home: const RecipeApp(),
     );
   }
+
 }
+
