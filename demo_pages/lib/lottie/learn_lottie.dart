@@ -28,6 +28,13 @@ class _LottieLearnState extends State<LottieLearn>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
+      endDrawer: Drawer(child: ListView(children: const [
+        ListTile(title: Text("item1"),),
+        ListTile(title: Text("item1"),),
+        ListTile(title: Text("item1"),),
+
+      ],),),
       body: GestureDetector(
           onTap: () {
             if (bookmarked) {

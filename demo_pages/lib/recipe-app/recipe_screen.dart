@@ -65,7 +65,7 @@ class _RecipeAppState extends State<RecipeApp> {
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profil"),
           ],
         ),
-        body: (_recipes != null && _recipes.isNotEmpty)
+        body: (isLoading && _recipes != null && _recipes.isNotEmpty)
             ? Container(
                 height: double.infinity,
                 child: ListView.builder(
@@ -75,7 +75,9 @@ class _RecipeAppState extends State<RecipeApp> {
                   },
                 ),
               )
-            : const CircularProgressIndicator());
+            : const CircularProgressIndicator()
+            
+            );
   }
 }
 
