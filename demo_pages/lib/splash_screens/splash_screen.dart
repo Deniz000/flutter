@@ -17,9 +17,9 @@ class _SplashScreenState extends State<SplashScreen>
     // TODO: implement initState
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => LottieLearn()));
+          .pushReplacement(MaterialPageRoute(builder: (_) => const LottieLearn()));
     });
   }
 

@@ -8,7 +8,7 @@ class MyCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _controller = PageController(viewportFraction: 0.6);
+    final controller = PageController(viewportFraction: 0.6);
 
     return Scaffold(
       backgroundColor: Colors.grey[200],
@@ -58,12 +58,12 @@ class MyCards extends StatelessWidget {
                     ],
                   ),
                   Container(
-                      padding: EdgeInsets.all(8),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
                         color: Colors.grey[300],
                         shape: BoxShape.circle,
                       ),
-                      child: Icon(Icons.add)),
+                      child: const Icon(Icons.add)),
                 ],
               ),
             ),
@@ -72,10 +72,10 @@ class MyCards extends StatelessWidget {
               height: 25,
             ),
 
-            Container(
+            SizedBox(
                 height: 180,
                 child: ListView(
-                  controller: _controller,
+                  controller: controller,
                   scrollDirection: Axis.horizontal,
                   children: [
                     CustomCards(
@@ -105,7 +105,7 @@ class MyCards extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: SmoothPageIndicator(
-                controller: _controller, // PageController
+                controller: controller, // PageController
                 count: 3,
                 effect: const ExpandingDotsEffect(
                     spacing: 8.0,
@@ -119,7 +119,7 @@ class MyCards extends StatelessWidget {
             ),
 
             //3 bıttons
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             const Row(

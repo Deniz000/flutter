@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -92,7 +90,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Checkbox(
                   value: isChecked, onChanged: (value){changeChecked();},
                 activeColor: Colors.blue,),
-                Text("Remember me"),
+                const Text("Remember me"),
               ],
             ),
             const SizedBox(
@@ -153,9 +151,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Card social(IconData icon) {
     return Card(
-      shape: RoundedRectangleBorder(),
+      shape: const RoundedRectangleBorder(),
       child: Padding(
-        padding: EdgeInsets.all(24.0),
+        padding: const EdgeInsets.all(24.0),
         child: Icon(
           icon,
           size: 40,

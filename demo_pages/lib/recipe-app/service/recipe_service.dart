@@ -33,7 +33,7 @@ class RecipeService extends IRecipeService {
 
     if (datas["feed"] is List) {
       for (var item in datas["feed"]) {
-        recipes.add(Recipe.fromJson(item["content"]["details"]));
+        recipes.add(Recipe.fromJson(item["content"]));
       }
     }
     // List<String> recipes = [];

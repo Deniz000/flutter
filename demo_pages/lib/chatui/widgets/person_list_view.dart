@@ -21,11 +21,11 @@ class PersonListView extends StatelessWidget {
           itemCount: count,
           itemBuilder: (context, index) {
             return ListTile(
-              contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               leading: Container(
-                padding: EdgeInsets.all(2.3),
+                padding: const EdgeInsets.all(2.3),
                 decoration: BoxDecoration(
-                color: Color.fromARGB(255, 1, 137, 132),
+                color: const Color.fromARGB(255, 1, 137, 132),
                   borderRadius: BorderRadius.circular(30)
                 ),
                 child: Image.asset(getPath(people[index].imgName))),
@@ -35,7 +35,7 @@ class PersonListView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Icon(people[index].data ?? null, color: Colors.red,),
+                  Icon(people[index].data, color: Colors.red,),
                   Text(people[index].hour),
                 ],
               ),

@@ -73,7 +73,7 @@ class _ToDoAppState extends State<ToDoApp> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                        margin: EdgeInsets.only(bottom: 50),
+                        margin: const EdgeInsets.only(bottom: 50),
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),

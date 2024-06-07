@@ -1,7 +1,6 @@
 import 'package:demo_pages/weatherapp/services/weather_service.dart';
 import 'package:demo_pages/weatherapp/models/weather_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:lottie/lottie.dart';
 
 class WaetherApp0 extends StatefulWidget {
@@ -47,14 +46,14 @@ class _WaetherApp0State extends State<WaetherApp0> {
                       onPressed: () {
                         fetchWaether(_controller.text);
                       },
-                      icon: Icon(Icons.search),
+                      icon: const Icon(Icons.search),
                     ),
                     border: InputBorder.none,
                     focusedBorder: InputBorder.none,
                     contentPadding: const EdgeInsets.only(left: 20, top: 10)),
               ),
             ),
-            SizedBox(height: 20), // İki Column arasında boşluk bırakmak için
+            const SizedBox(height: 20), // İki Column arasında boşluk bırakmak için
             Column(
               children: [
                 Text(_controller.text),
