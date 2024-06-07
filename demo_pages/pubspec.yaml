@@ -74,6 +74,7 @@ flutter:
       - lib/weatherapp/assets/
       - lib/splash_screens/assets/
       - lib/onboardings/assets/
+      - lib/login/asset/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
