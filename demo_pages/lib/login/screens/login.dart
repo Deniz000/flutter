@@ -12,9 +12,17 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool isVisible = false;
+  bool isChecked = false;
+
   void changeVisible() {
     setState(() {
       isVisible = !isVisible;
+    });
+  }
+
+  void changeChecked() {
+    setState(() {
+      isChecked = !isChecked;
     });
   }
 
@@ -78,6 +86,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       changeVisible();
                     },
                   )),
+            ),
+            Row(
+              children: [
+                Checkbox(
+                  value: isChecked, onChanged: (value){changeChecked();},
+                activeColor: Colors.blue,),
+                Text("Remember me"),
+              ],
             ),
             const SizedBox(
               height: 15,

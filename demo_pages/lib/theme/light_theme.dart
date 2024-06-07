@@ -27,7 +27,9 @@ class LightTheme {
               _lightColors.foodAppDarkBlue,
             ),
             unselectedIconTheme:
-                bottomItemTheme(_lightColors.foodAppUnselectedItem)));
+                bottomItemTheme(_lightColors.foodAppUnselectedItem)),
+                
+                );
   }
 
   IconThemeData bottomItemTheme(Color color) {
