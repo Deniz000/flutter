@@ -1,5 +1,5 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:demo_pages/recipe-app/recipe_screen.dart';
+import 'package:demo_pages/expansion_tile_card_state/expasion_tile_card.dart';
 import 'package:demo_pages/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: LightTheme().theme,
       // ThemeData(
       //   appBarTheme: const AppBarTheme(
@@ -37,8 +38,7 @@ class MyApp extends StatelessWidget {
       //   ),
       //   scaffoldBackgroundColor: Colors.white,
       // ),
-      home: const RecipeApp
-      (),
+      home: ExpansionTileCardLearn(),
     );
   }
 }
