@@ -2,7 +2,6 @@ import 'package:demo_pages/recipe-app/model/recipe.dart';
 import 'package:demo_pages/recipe-app/recipe_detail.dart';
 import 'package:demo_pages/recipe-app/service/recipe_service.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 
 class RecipeApp extends StatefulWidget {
   const RecipeApp({super.key});
@@ -15,7 +14,7 @@ class _RecipeAppState extends State<RecipeApp> {
   bool isLoading = false;
   late final IRecipeService _recipeService;
   int _currentSelectecItem = 0;
-  late final List<Recipe>? _recipes;
+  List<Recipe>? _recipes;
   @override
   void initState() {
     super.initState();
@@ -33,9 +32,7 @@ class _RecipeAppState extends State<RecipeApp> {
   Future<void> fetchRecipe() async {
     changeLoading();
     try {
-      print("girdi");
       _recipes = await _recipeService.getRecipeList();
-      print("çıktı");
       setState(() {});
     } catch (e) {
       print('Error fetching recipes: $e');
@@ -70,9 +67,9 @@ class _RecipeAppState extends State<RecipeApp> {
           ? SizedBox(
               height: double.infinity,
               child: ListView.builder(
-                itemCount: _recipes.length,
+                itemCount: _recipes?.length,
                 itemBuilder: (context, index) {
-                  return ListItemSheme(recipes: _recipes[index]);
+                  return ListItemSheme(recipes: _recipes![index]);
                 },
               ),
             )
@@ -95,19 +92,8 @@ class ListItemSheme extends StatefulWidget {
   State<ListItemSheme> createState() => _ListItemShemeState();
 }
 
-class _ListItemShemeState extends State<ListItemSheme>
-    with TickerProviderStateMixin {
-  late AnimationController _controller;
+class _ListItemShemeState extends State<ListItemSheme>{
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _controller = AnimationController(
-        vsync: this, duration: const Duration(microseconds: 1));
-  }
-
-  bool bookmarked = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -129,24 +115,7 @@ class _ListItemShemeState extends State<ListItemSheme>
                   widget._recipe.image,
                   fit: BoxFit.cover,
                 )),
-            Positioned(
-              top: 2,
-              right: 1,
-              child: GestureDetector(
-                onTap: () {
-                  if (bookmarked) {
-                    _controller.reverse();
-                    bookmarked = !bookmarked;
-                  } else {
-                    _controller.forward();
-                    bookmarked = !bookmarked;
-                  }
-                },
-                child: Lottie.network(
-                    controller: _controller,
-                    "https://lottie.host/3b33812b-001b-40a6-a086-a40caeea0a74/rqsTnR1hru.json"),
-              ),
-            ),
+           
             Positioned(
                 bottom: 50,
                 left: 10,

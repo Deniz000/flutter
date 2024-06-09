@@ -21,7 +21,6 @@ class CustomWidget extends StatelessWidget {
 
 class _CustomButton extends StatelessWidget with _PaddingValues{
   _CustomButton({
-    super.key,
     required this.data,
   });
 
@@ -48,8 +47,8 @@ class _CustomButton extends StatelessWidget with _PaddingValues{
 }
 
 mixin class _PaddingValues {
-  final EdgeInsets paddingX = EdgeInsets.all(6.0);
-  final EdgeInsets padding2X = EdgeInsets.all(12.0);
+  final EdgeInsets paddingX = const EdgeInsets.all(6.0);
+  final EdgeInsets padding2X = const EdgeInsets.all(12.0);
 }
 
 class _ColorsUtility {

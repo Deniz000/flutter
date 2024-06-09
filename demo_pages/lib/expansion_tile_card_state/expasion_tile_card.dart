@@ -2,7 +2,7 @@ import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 
 class ExpansionTileCardLearn extends StatefulWidget {
-  ExpansionTileCardLearn({super.key});
+  const ExpansionTileCardLearn({super.key});
 
   @override
   State<ExpansionTileCardLearn> createState() => _ExpansionTileCardLearnState();
@@ -17,9 +17,9 @@ class _ExpansionTileCardLearnState extends State<ExpansionTileCardLearn> {
       appBar: AppBar(),
       body: ExpansionTileCard(
         key: cardA,
-        title: Text("başlık"),
-        subtitle: Text("alt başlık"),
-        leading: CircleAvatar(
+        title: const Text("başlık"),
+        subtitle: const Text("alt başlık"),
+        leading: const CircleAvatar(
           child: Text("A"),
         ),
         children: const [

@@ -31,9 +31,7 @@ class MyStackPage extends StatelessWidget {
 }
 
 class _BottomSide extends StatelessWidget {
-  const _BottomSide({
-    super.key,
-  });
+  const _BottomSide();
 
   @override
   Widget build(BuildContext context) {

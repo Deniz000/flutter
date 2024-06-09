@@ -33,10 +33,10 @@ class _SharedLearnState extends LoadingStateful<SharedLearn> {
   }
 
   onChanged(String value) {
-    final _value = int.tryParse(value);
-    if (_value != null) {
+    final value0 = int.tryParse(value);
+    if (value0 != null) {
       setState(() {
-        _currentValue = _value;
+        _currentValue = value0;
       });
     }
   }
@@ -78,7 +78,7 @@ class _SharedLearnState extends LoadingStateful<SharedLearn> {
 
   FloatingActionButton _saveButton() {
     return FloatingActionButton(
-      child: Icon(Icons.add),
+      child: const Icon(Icons.add),
       onPressed: () async {
         await _manager.saveInt(SharedKeys.counter.name, _currentValue);
         onChanged(_manager.getInt(SharedKeys.counter.name).toString());
@@ -89,7 +89,7 @@ class _SharedLearnState extends LoadingStateful<SharedLearn> {
 
   FloatingActionButton _deleteButton() {
     return FloatingActionButton(
-      child: Icon(Icons.remove),
+      child: const Icon(Icons.remove),
       onPressed: () async {
         _manager.removeItem(SharedKeys.counter.name);
         print(_userCacheManager.getUsers());

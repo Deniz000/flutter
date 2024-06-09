@@ -37,9 +37,9 @@ class _PasswordTextfieldState extends State<PasswordTextfield> {
             onPressed: () {
               _changeVisible();
             },
-            icon:  AnimatedCrossFade(firstChild: Icon(Icons.visibility), 
-            secondChild: Icon(Icons.visibility_off_rounded),
-            duration: Duration(milliseconds: 100),
+            icon:  AnimatedCrossFade(firstChild: const Icon(Icons.visibility), 
+            secondChild: const Icon(Icons.visibility_off_rounded),
+            duration: const Duration(milliseconds: 100),
             crossFadeState: _isSecure ? CrossFadeState.showFirst : CrossFadeState.showSecond));
             // icon: _isSecure
             //     ? Icon(Icons.visibility)

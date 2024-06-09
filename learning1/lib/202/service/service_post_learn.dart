@@ -54,7 +54,7 @@ class _ServicePostLearnState extends State<ServicePostLearn> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         itemCount: _list?.length ?? 0,
         itemBuilder: (context, index) {
           return ListCard(model: _list?[index]);
@@ -141,7 +141,7 @@ class ListCard extends StatelessWidget {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => CommentsLearnView(postId: _model?.id)));
         },
-        leading: Icon(
+        leading: const Icon(
           Icons.wb_cloudy_sharp,
           color: Colors.green,
         ),

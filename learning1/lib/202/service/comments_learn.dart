@@ -43,7 +43,7 @@ class _CommentsLearnViewState extends State<CommentsLearnView> {
           itemCount: _comments?.length ?? 0,
           itemBuilder: (context, index) {
             return ListTile(
-              leading: Icon(Icons.power_settings_new_outlined),
+              leading: const Icon(Icons.power_settings_new_outlined),
               title: Text("${_comments?[index].body}"),
             );
           }),

@@ -13,7 +13,7 @@ abstract class IPostService {
 }
 
 class PostService implements IPostService {
-  Dio _dio;
+  final Dio _dio;
   PostService()
       : _dio =
             Dio(BaseOptions(baseUrl: "https://jsonplaceholder.typicode.com/"));

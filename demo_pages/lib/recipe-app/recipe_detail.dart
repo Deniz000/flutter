@@ -1,8 +1,7 @@
 import 'package:demo_pages/recipe-app/model/recipe.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:demo_pages/theme/light_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lottie/lottie.dart';
+import 'package:flutter/widgets.dart';
 
 class RecipeDetail extends StatefulWidget {
   const RecipeDetail({
@@ -15,127 +14,75 @@ class RecipeDetail extends StatefulWidget {
   State<RecipeDetail> createState() => RecipeDetailState();
 }
 
-class RecipeDetailState extends State<RecipeDetail>
-    with TickerProviderStateMixin {
-  late final AnimationController _controller;
-  bool bookmarked = false;
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-  }
-
+class RecipeDetailState extends State<RecipeDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(children: [
-              Container(
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(40)),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.black54,
-                          offset: Offset(3, 3),
-                          blurRadius: 3)
-                    ]),
-                width: double.infinity,
-                child: ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                      bottomLeft: Radius.circular(40),
-                      bottomRight: Radius.circular(40)),
-                  child: Image.network(
-                    widget.recipe!.image,
-                    fit: BoxFit.cover,
-                  ),
+        body: CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(0),
+            child: Text(
+              '${widget.recipe?.name}',
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+          ),
+          pinned: true,
+          floating: true,
+          expandedHeight: 200,
+          flexibleSpace: FlexibleSpaceBar(
+              background:
+                  Image.network(widget.recipe!.image, fit: BoxFit.cover)),
+        ),
+        SliverToBoxAdapter(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Ingredients",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
-              ),
-              Positioned(
-                bottom: 0,
-                right: 0,
-                child: GestureDetector(
-                  onTap: () {
-                    if (bookmarked) {
-                      _controller.reverse();
-                      bookmarked = !bookmarked;
-                    } else {
-                      _controller.forward();
-                      bookmarked = !bookmarked;
-                    }
-                  },
-                  child: Lottie.network(
-                      controller: _controller,
-                      "https://lottie.host/3b33812b-001b-40a6-a086-a40caeea0a74/rqsTnR1hru.json",
-                      width: 100,
-                      height: 100,
-                      fit: BoxFit.cover),
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  width: double.maxFinite,
+                  height: 200,
+                  decoration: BoxDecoration(
+                      color: LightThemeColor.foodAppYellow,
+                      borderRadius:
+                          const BorderRadius.all(Radius.circular(20))),
+                  child: ListView.builder(itemBuilder: (context, index) {
+                    return Text('${widget.recipe?.ingredients[index]}');
+                  }),
                 ),
-              )
-            ]),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.recipe!.name,
-                    style: const TextStyle(
-                        fontSize: 30,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.orange,
-                        shadows: [
-                          Shadow(color: Colors.black45, offset: Offset(1, 1))
-                        ]),
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      const Icon(
-                        (FontAwesomeIcons.receipt),
-                        color: Colors.red,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        widget.recipe!.name,
-                        style: const TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  SizedBox(
-                    height: 300,
-                    child: ListView.builder(itemBuilder: (context, index) {
-                      return ListTile(
-                        leading: Icon(Icons.done_outline_rounded,
-                            size: 20, color: Colors.green[800]),
-                        title: Text(
-                          widget.recipe?.ingredients[index] ?? "",
-                          style: const TextStyle(
-                            fontSize: 16,
-                          ),
-                        ),
-                      );
-                    }),
-                  )
-                ],
-              ),
-            )
-          ],
-        ));
+              ],
+            ),
+          ),
+        ),
+        SliverList(
+            delegate: SliverChildBuilderDelegate((context, index) {
+          return ListTile(
+            title: Text(
+              'Step ${index + 1}',
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+            ),
+            subtitle: Text(
+              steps[index],
+            ),
+          );
+        }, childCount: steps.length))
+      ],
+    ));
   }
 }
+
+List<String> steps = [
+  "Preheat the oven to 325 degrees F (165 degrees C). Sift cake flour, baking powder, and 1 teaspoon salt together in a bowl.",
+  "Combine egg whites and cream of tartar in a large bowl. Beat on medium speed with an electric mixer until mixture forms soft peaks. With the mixer running, gradually pour in 1/2 cup of the granulated sugar, 1 tablespoon at a time, and continue beating until mixture forms stiff, glossy peaks, 3 to 5 minutes. Set aside.",
+  "In another bowl, add egg yolks and remaining 1 1/4 cups sugar. Beat until mixture has increased in volume and lightened in color, 3 to 5 minutes. Add in 3/4 cup limoncello, olive oil, 1/4 cup heavy cream, 2 tablespoons lemon juice, 1 1/2 tablespoons lemon zest, and vanilla and mix until thoroughly combined.",
+  "Pour in 1/2 of the sifted cake flour mixture and mix until just combined. Add in remaining flour mixture plus 1 tablespoon poppy seeds and mix on low speed until just combined. Add in 1/3 of the whipped egg whites, and gently fold in until no streaks of white remain. Add in remaining egg whites and fold gently until no streaks of white remain.",
+  "Place an ungreased 10-inch tube pan with removable bottom onto a baking sheet. Pour batter evenly into the tube pan.",
+  "Bake in the preheated oven until top of the cake begins to turn golden and feels mostly set, 55 to 65 minutes. Remove pan from oven and invert onto a wire rack to cool completely, about 90 minutes.",
+];

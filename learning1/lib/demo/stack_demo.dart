@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:learning1/core/random_image.dart';
 
 class StackDemo extends StatelessWidget {
@@ -15,7 +13,7 @@ class StackDemo extends StatelessWidget {
         child: Stack(
           alignment: Alignment.center,
           children:[
-          Positioned.fill(child: RandomImage(), bottom: 40,),
+          Positioned.fill(bottom: 40,child: RandomImage(),),
           Positioned(
             height:80,
             bottom: 0,

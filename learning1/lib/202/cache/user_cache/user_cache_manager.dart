@@ -12,9 +12,9 @@ class UserCacheManager {
   void saveItems(List<User> users) {
     //json aslında bir dizedir(string) bu kod da user's json formatında
     //bir String'e dönüştürür. Bizim de bu formatta string'e ihtiyacımız var.
-    final _items =
+    final items =
         users.map((element) => jsonEncode(element.toJson())).toList();
-    sharedManager.saveStringItems(SharedKeys.users.name, _items);
+    sharedManager.saveStringItems(SharedKeys.users.name, items);
   }
 
   List<User>? getUsers() {

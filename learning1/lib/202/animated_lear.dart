@@ -59,7 +59,7 @@ class _AnimatedLearnState extends State<AnimatedLearn>
               child: AnimatedList(
                 initialItemCount: 4,
                 itemBuilder: (context, index, animation) {
-                  return Text("Ben list");
+                  return const Text("Ben list");
                 },
               ),
             )
@@ -96,12 +96,12 @@ class _AnimatedLearnState extends State<AnimatedLearn>
       title: AnimatedOpacity(
           duration: _DurationItems.durationLow,
           opacity: _isOpasity ? 1 : 0,
-          child: Text("I'm here,")),
+          child: const Text("I'm here,")),
       trailing: IconButton(
           onPressed: () {
             _changeOpasity();
           },
-          icon: Icon(Icons.slideshow_sharp)),
+          icon: const Icon(Icons.slideshow_sharp)),
     );
   }
 

@@ -29,24 +29,24 @@ class _MyCollectionDemoState extends State<MyCollectionDemo> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
           itemCount: _collection.length,
           itemBuilder: (context, index) {
             return Card(
               elevation: 3.0,
               shadowColor: Colors.blue[700],
-              margin: EdgeInsets.only(bottom: 20),
+              margin: const EdgeInsets.only(bottom: 20),
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.all(15),
+                    margin: const EdgeInsets.all(15),
                     height: 240, child: Image.asset(_collection[index].imagePath,)),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                      Text(_collection[index].title, style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),),
+                      Text(_collection[index].title, style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),),
                       Text('${_collection[index].price} eth')
                     ],),
                   )

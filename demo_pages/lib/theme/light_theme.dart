@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class LightTheme {
-  final _lightColors = _LightThemeColor();
+  final _lightColors = LightThemeColor();
 
   late final ThemeData theme;
 
   LightTheme() {
     theme = ThemeData(
         appBarTheme: AppBarTheme(
-            backgroundColor: _lightColors.foodAppYellow,
+            backgroundColor: LightThemeColor.foodAppYellow,
             elevation: 1,
             systemOverlayStyle: SystemUiOverlayStyle.dark,
             iconTheme: bottomItemTheme(_lightColors.foodAppDarkBlue),
@@ -41,10 +41,10 @@ class LightTheme {
   }
 }
 
-class _LightThemeColor {
+class LightThemeColor {
   Color foodAppSecondary = const Color.fromARGB(255, 41, 110, 75);
   Color foodAppBlue = const Color.fromARGB(255, 153,204,255);
-  Color foodAppYellow = const Color.fromARGB(255, 255,217,102);
+  static Color foodAppYellow = const Color.fromARGB(255, 255,217,102);
   Color foodAppDarkBlue = const Color.fromARGB(255, 43,44,65);
   Color foodAppUnselectedItem = const Color.fromARGB(255, 171, 173, 172);
 }

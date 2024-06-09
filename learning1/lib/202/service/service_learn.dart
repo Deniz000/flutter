@@ -27,10 +27,10 @@ class _ServiceLearnState extends State<ServiceLearn> {
   Future<void> fetchPostItems() async {
     final response = await _dio.get("/post");
     if (response.statusCode == HttpStatus.ok) {
-      final _datas = response.data;
-      if (_datas is List) {
+      final datas = response.data;
+      if (datas is List) {
         setState(() {
-          _list = _datas.map((e) => PostModel.fromJson(e)).toList();
+          _list = datas.map((e) => PostModel.fromJson(e)).toList();
         });
       }
     }
@@ -42,7 +42,7 @@ class _ServiceLearnState extends State<ServiceLearn> {
     return Scaffold(
       appBar: AppBar(),
       body: ListView.builder(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           itemCount: _list?.length ?? 0,
           itemBuilder: (context, index) {
             return ListCard(model: _list?[index]);

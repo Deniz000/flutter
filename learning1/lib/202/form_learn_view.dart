@@ -8,7 +8,7 @@ class FormLearnView extends StatefulWidget {
 }
 
 class _FormLearnViewState extends State<FormLearnView> {
-  GlobalKey<FormState> _key = GlobalKey();
+  final GlobalKey<FormState> _key = GlobalKey();
   //bu key üzerinden glabol kullandığımız için form state özellikleri yakalayabiliyorum
 
   @override
@@ -30,7 +30,7 @@ class _FormLearnViewState extends State<FormLearnView> {
                     print('okey');
                   }
                 },
-                child: Text("Save")),
+                child: const Text("Save")),
           ],
         ),
       ),
