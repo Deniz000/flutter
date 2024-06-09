@@ -1,7 +1,6 @@
 import 'package:demo_pages/recipe-app/model/recipe.dart';
 import 'package:demo_pages/theme/light_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class RecipeDetail extends StatefulWidget {
   const RecipeDetail({
@@ -22,7 +21,7 @@ class RecipeDetailState extends State<RecipeDetail> {
       slivers: [
         SliverAppBar(
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(0),
+            preferredSize: const Size.fromHeight(0),
             child: Text(
               '${widget.recipe?.name}',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
