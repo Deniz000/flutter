@@ -33,6 +33,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
     bool isSelected = selectedItem == index;
 
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3),
         color: isSelected ? selectionColor : null,
@@ -42,7 +43,7 @@ class _SideMenuWidgetState extends State<SideMenuWidget> {
           selectedItem = index;
         }),
         child: Padding(
-          padding: const EdgeInsets.only(bottom: 4, top: 4),
+          padding: const EdgeInsets.only(bottom: 5, top: 5),
           child: Row(
             children: [
               Padding(

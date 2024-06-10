@@ -1,3 +1,4 @@
+import 'package:demo_pages/dashboard/widgets/board.dart';
 import 'package:demo_pages/dashboard/widgets/side_menu_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +21,11 @@ class _DashboardLearnState extends State<DashboardLearn> {
                 height: double.maxFinite,
                 child: SideMenuWidget(),
               )),
-          Expanded(
+          const Expanded(
               flex: 7,
-              child: Container(
+              child: SizedBox(
                 height: double.maxFinite,
-                color: Colors.black,
+                child: Board(),
               )),
           Expanded(
               flex: 3,
