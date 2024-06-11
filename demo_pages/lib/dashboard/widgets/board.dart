@@ -21,10 +21,10 @@ class _BoardState extends State<Board> {
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
         child: Column(
           children: <Widget>[
-            SearchWidget(),
+            const SearchWidget(),
             ActivityDetailsCard(),
-            LineChartCard(),
-            Expanded(child: BarGraphWidget()),
+            const LineChartCard(),
+            const Expanded(child: BarGraphWidget()),
            
           ],
         ),

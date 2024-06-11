@@ -4,7 +4,7 @@ import 'package:demo_pages/dashboard/model/healty_model.dart';
 import 'package:flutter/material.dart';
 
 class ActivityDetailsCard extends StatelessWidget {
-  ActivityDetailsCard({Key? key}) : super(key: key);
+  ActivityDetailsCard({super.key});
 
   final details = HealtyDetails().details;
 
@@ -15,7 +15,7 @@ class ActivityDetailsCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 10),
           child: GridView.builder(
             shrinkWrap: true,
-            physics: ScrollPhysics(),
+            physics: const ScrollPhysics(),
             itemCount: details.length,
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
@@ -34,9 +34,9 @@ class ActivityDetailsCard extends StatelessWidget {
 
 class CustomCard extends StatelessWidget {
   const CustomCard({
-    Key? key,
+    super.key,
     required this.detail,
-  }) : super(key: key);
+  });
 
   final HealtyModel detail;
 
