@@ -10,24 +10,24 @@ class ActivityDetailsCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: background,
-      body: Padding(
-        padding: const EdgeInsets.only(top: 15),
-        child: GridView.builder(
-          shrinkWrap: true,
-          physics: ScrollPhysics(),
-          itemCount: details.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4,
-            crossAxisSpacing: 15.0,
-            mainAxisSpacing: 12.0,
+    return Expanded(
+      child: Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: GridView.builder(
+            shrinkWrap: true,
+            physics: ScrollPhysics(),
+            itemCount: details.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              crossAxisSpacing: 10.0,
+              childAspectRatio: 1,
+              mainAxisExtent: 150
+            ),
+            itemBuilder: (_, index) {
+              return CustomCard(detail: details[index]);
+            },
           ),
-          itemBuilder: (_, index) {
-            return CustomCard(detail: details[index]);
-          },
         ),
-      ),
     );
   }
 }
@@ -47,7 +47,7 @@ class CustomCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: Card(
-        color: selectionColor,
+        color: selectionColor.withOpacity(0.3),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -58,11 +58,13 @@ class CustomCard extends StatelessWidget {
             ),
             Text(
               detail.value,
-              style: TextStyle(fontSize: 15),
+              style: const TextStyle(fontSize: 15,
+              color: white),
             ),
             Text(
               detail.title,
-              style: TextStyle(fontSize: 15),
+              style: const TextStyle(fontSize: 15,
+              color: white),
             ),
           ],
         ),

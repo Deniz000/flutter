@@ -13,7 +13,6 @@ class SearchWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: const Color.fromARGB(56, 238, 238, 238)
       ),
-      height: 50,
       width: double.infinity, 
       child: const TextField(
         style: TextStyle(color: white),
