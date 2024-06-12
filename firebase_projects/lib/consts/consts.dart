@@ -7,3 +7,4 @@ const Color pastelPurple = Color(0xFFB39EB5); // Pastel Mor
 const Color pastelYellow = Color(0xFFFDFD96); // Pastel Sarı
 const Color pastelGray = Color(0xFFD3D3D3); // Pastel Gri
 const Color white = Color(0xFFFFFFFF); // Pastel Gri
+ const Color primary = Color.fromARGB(255, 60, 3, 70);

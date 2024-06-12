@@ -48,121 +48,123 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: pastelGray,
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Icon(
-              Icons.android,
-              size: 100,
-              color: pastelGreen,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 40),
-              child: Text(
-                'Welcome Back',
-                style: GoogleFonts.gwendolyn(
-                  fontSize: 48,
-                  fontWeight: FontWeight.w700,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 170),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(
+                Icons.android,
+                size: 100,
+                color: primary,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 40),
+                child: Text(
+                  'Welcome Back',
+                  style: GoogleFonts.gwendolyn(
+                    fontSize: 48,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  fillColor: white,
-                  filled: true,
-                  enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: pastelBlue, width: 0.9)),
-                  focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: pastelBlue, width: 2)),
-                  hintText: "Email",
+              Padding(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: TextField(
+                  controller: emailController,
+                  decoration: const InputDecoration(
+                    fillColor: white,
+                    filled: true,
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: primary, width: 0.9)),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: primary, width: 2)),
+                    hintText: "Email",
+                  ),
                 ),
               ),
-            ),
-            TextField(
-              controller: passwordController,
-              obscureText: isVisible,
-              decoration: InputDecoration(
-                  fillColor: white,
-                  filled: true,
-                  enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: pastelBlue, width: 0.9)),
-                  focusedBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: pastelBlue, width: 2)),
-                  hintText: "Password",
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        changeVisibility();
-                      },
-                      icon: isVisible
-                          ? const Icon(Icons.visibility_off)
-                          : const Icon(Icons.visibility))),
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                GestureDetector(
-                  onTap: () => {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
-                      return const ForgotPasswordPage();
-                    }))
+              TextField(
+                controller: passwordController,
+                obscureText: isVisible,
+                decoration: InputDecoration(
+                    fillColor: white,
+                    filled: true,
+                    enabledBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color: primary, width: 0.9)),
+                    focusedBorder: const OutlineInputBorder(
+                        borderSide: BorderSide(color:  primary, width: 2)),
+                    hintText: "Password",
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          changeVisibility();
+                        },
+                        icon: isVisible
+                            ? const Icon(Icons.visibility_off)
+                            : const Icon(Icons.visibility))),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GestureDetector(
+                    onTap: () => {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                        return const ForgotPasswordPage();
+                      }))
+                    },
+                    child: Text(
+                      'Forgot Password?',
+                      style: GoogleFonts.lato(
+                          color:  primary,
+                          decoration: TextDecoration.underline,
+                          decorationColor:  primary),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    login();
                   },
-                  child: Text(
-                    'Forgot Password?',
-                    style: GoogleFonts.lato(
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.blue),
+                  style: ElevatedButton.styleFrom(
+                      minimumSize: const Size(double.infinity, 50),
+                      backgroundColor: primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      )),
+                  child: const Text("L O G I N", style: TextStyle(color: white),)),
+              const SizedBox(
+                height: 10,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'New to here?',
+                    style: GoogleFonts.lato(),
                   ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 8,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  login();
-                },
-                style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(double.infinity, 50),
-                    backgroundColor: pastelYellow,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(3),
-                    )),
-                child: const Text("L O G I N")),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'New to here?',
-                  style: GoogleFonts.lato(),
-                ),
-                const SizedBox(width: 7),
-                GestureDetector(
-                  onTap: widget.showRegisterPage,
-                  child: Text(
-                    'Create an account.',
-                    style: GoogleFonts.lato(
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.blue),
+                  const SizedBox(width: 7),
+                  GestureDetector(
+                    onTap: widget.showRegisterPage,
+                    child: Text(
+                      'Create an account.',
+                      style: GoogleFonts.lato(
+                          color: primary,
+                          decoration: TextDecoration.underline,
+                          decorationColor: primary),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
