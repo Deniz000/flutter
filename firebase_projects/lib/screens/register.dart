@@ -13,7 +13,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
+  bool? isChecked = false;
   bool isVisible = false;
 
   late TextEditingController emailController;
@@ -50,7 +50,7 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       backgroundColor: pastelGray,
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -86,31 +86,46 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: TextField(
-                controller: passwordController,
-                obscureText: isVisible,
-                decoration: InputDecoration(
-                    fillColor: white,
-                    filled: true,
-                    enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: pastelBlue, width: 0.9)),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: pastelBlue, width: 2)),
-                    hintText: "Password",
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          changeVisibility();
-                        },
-                        icon: isVisible
-                            ? const Icon(Icons.visibility_off)
-                            : const Icon(Icons.visibility))),
-              ),
+            TextField(
+              controller: passwordController,
+              obscureText: isVisible,
+              decoration: InputDecoration(
+                  fillColor: white,
+                  filled: true,
+                  enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: pastelBlue, width: 0.9)),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: pastelBlue, width: 2)),
+                  hintText: "Password",
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        changeVisibility();
+                      },
+                      icon: isVisible
+                          ? const Icon(Icons.visibility_off)
+                          : const Icon(Icons.visibility))),
+            ),
+             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text(
+                  'Remember me?',
+                  style: GoogleFonts.lato(),
+                ),
+                Checkbox(
+                    value: isChecked,
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    checkColor: pastelGray,
+                    activeColor: pastelGreen,
+                    onChanged: (value) {
+                      setState(() {
+                        isChecked = value;
+                      });
+                    })
+              ],
             ),
             ElevatedButton(
                 onPressed: () {
-                  print(passwordController.text);
                   login();
                 },
                 style: ElevatedButton.styleFrom(

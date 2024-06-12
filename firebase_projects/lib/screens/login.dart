@@ -1,13 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_projects/consts/consts.dart';
+import 'package:firebase_projects/screens/forgot_password_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback showRegisterPage;
-  const LoginPage({super.key,
-  required this.showRegisterPage});
+  const LoginPage({super.key, required this.showRegisterPage});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -50,7 +49,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       backgroundColor: pastelGray,
       body: Padding(
-        padding: EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -85,31 +84,52 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: TextField(
-                controller: passwordController,
-                obscureText: isVisible,
-                decoration: InputDecoration(
-                    fillColor: white,
-                    filled: true,
-                    enabledBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: pastelBlue, width: 0.9)),
-                    focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color: pastelBlue, width: 2)),
-                    hintText: "Password",
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          changeVisibility();
-                        },
-                        icon: isVisible
-                            ? const Icon(Icons.visibility_off)
-                            : const Icon(Icons.visibility))),
-              ),
+            TextField(
+              controller: passwordController,
+              obscureText: isVisible,
+              decoration: InputDecoration(
+                  fillColor: white,
+                  filled: true,
+                  enabledBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: pastelBlue, width: 0.9)),
+                  focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: pastelBlue, width: 2)),
+                  hintText: "Password",
+                  suffixIcon: IconButton(
+                      onPressed: () {
+                        changeVisibility();
+                      },
+                      icon: isVisible
+                          ? const Icon(Icons.visibility_off)
+                          : const Icon(Icons.visibility))),
+            ),
+            const SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () => {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      return const ForgotPasswordPage();
+                    }))
+                  },
+                  child: Text(
+                    'Forgot Password?',
+                    style: GoogleFonts.lato(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.blue),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 8,
             ),
             ElevatedButton(
                 onPressed: () {
-                  print(passwordController.text);
                   login();
                 },
                 style: ElevatedButton.styleFrom(
