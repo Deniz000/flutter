@@ -3,7 +3,6 @@ import 'package:firebase_projects/consts/consts.dart';
 import 'package:firebase_projects/screens/forgot_password_page.dart';
 import 'package:firebase_projects/widgets/fadingcircularindicator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {

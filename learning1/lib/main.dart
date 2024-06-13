@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning1/202/animated_lear.dart';
 import 'package:learning1/202/cache/shared_preference_learn.dart';
 import 'package:learning1/202/theme/lisght_theme.dart';
 
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
       //   )
       //   // listTileTheme: ListTileThemeData(contentPadding: EdgeInsets.zero)
       // ),
-      home: const SharedLearn(),
+      home: const AnimatedLearn(),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning1/202/animated_learn_hero.dart';
 
 const double kZero = 0;
 
@@ -62,6 +63,22 @@ class _AnimatedLearnState extends State<AnimatedLearn>
                   return const Text("Ben list");
                 },
               ),
+            ),
+            Hero(
+              tag: 'image',
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) {
+                        return const AnimatedLearnHero(
+                            heroTag: 'image',
+                            imagePath:
+                                "/Users/guldenizozdemir/flutter_learn_process/start_week/learning1/assets/whale.jpeg");
+                      },
+                    ));
+                  },
+                  child: Image.asset(width: 100,
+                      "/Users/guldenizozdemir/flutter_learn_process/start_week/learning1/assets/whale.jpeg")),
             )
           ],
         ));
@@ -70,9 +87,11 @@ class _AnimatedLearnState extends State<AnimatedLearn>
   AnimatedContainer _animatedConteiner(BuildContext context) {
     return AnimatedContainer(
       duration: _DurationItems.durationLow,
-      height: _isVisiable ? kZero : (MediaQuery.of(context).size.width) * 0.2,
+      height: _isVisiable ? 10 : (MediaQuery.of(context).size.width) * 0.2,
       width: (MediaQuery.of(context).size.height) * 0.2,
       color: Colors.blue,
+      clipBehavior: Clip.antiAlias,
+      curve: Curves.easeInQuint,
     );
   }
 
@@ -83,6 +102,7 @@ class _AnimatedLearnState extends State<AnimatedLearn>
 
   AnimatedDefaultTextStyle _animatedDefaultTextStyle(BuildContext context) {
     return AnimatedDefaultTextStyle(
+        curve: Curves.easeInOutCubic,
         style: (_isVisiable
                 ? context.textTheme().displayLarge
                 : context.textTheme().labelLarge) ??
@@ -107,6 +127,8 @@ class _AnimatedLearnState extends State<AnimatedLearn>
 
   AnimatedCrossFade _animatedCrossFade() {
     return AnimatedCrossFade(
+      firstCurve: Curves.fastOutSlowIn,
+      secondCurve: Curves.fastEaseInToSlowEaseOut,
       firstChild: Container(
         height: 100,
         width: 100,
