@@ -78,6 +78,7 @@ class _RegisterPageState extends State<RegisterPage> {
     String email,
   ) async {
     // await FirebaseAuth.instance.collections.
+
     FirebaseFirestore.instance.collection('users').add({
       'first_name': firstName,
       'last_name': lastName,
