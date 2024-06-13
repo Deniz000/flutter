@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_projects/widgets/wavecircularindicator.dart';
 import 'package:flutter/material.dart';
 
 class GetUserName extends StatelessWidget {
@@ -21,10 +22,10 @@ class GetUserName extends StatelessWidget {
                 snapshot.data!.data() as Map<String, dynamic>;
             return Text('${data['first_name']} ${data['last_name']}, ${data['age']} years old.');
           } else {
-              return Text('No data found');
+              return const Text('No data found');
             }
         }else if (snapshot.connectionState == ConnectionState.waiting) {
-            return CircularProgressIndicator();
+            return const Circularindicator();
           } else {
             return Text('Error: ${snapshot.error}');
           }

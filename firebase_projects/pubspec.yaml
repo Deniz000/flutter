@@ -17,6 +17,9 @@ dependencies:
   firebase_auth: ^5.1.0
   cloud_firestore: ^5.0.1
 
+  #indicator custo
+  flutter_spinkit: ^5.2.1
+
 
   # Google Fonts
   google_fonts: ^6.2.1

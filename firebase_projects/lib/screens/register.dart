@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_projects/consts/consts.dart';
+import 'package:firebase_projects/widgets/wavecircularindicator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,6 +37,12 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Future login() async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return   const Circularindicator();
+      },
+    );
     try {
       if (confirmPassword()) {
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -49,15 +56,6 @@ class _RegisterPageState extends State<RegisterPage> {
           emailController.text.trim(),
         );
       }
-       showDialog(
-        // ignore: use_build_context_synchronously
-        context: context,
-        builder: (BuildContext context) {
-          return const AlertDialog(
-            content: Text("koş bak"),
-          );
-        },
-      );
     } catch (e) {
       showDialog(
         // ignore: use_build_context_synchronously
@@ -69,7 +67,9 @@ class _RegisterPageState extends State<RegisterPage> {
         },
       );
     }
+    Navigator.of(context).pop();
   }
+
 
   Future addUserDetails(
     String firstName,

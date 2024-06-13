@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_projects/consts/consts.dart';
 import 'package:firebase_projects/screens/forgot_password_page.dart';
+import 'package:firebase_projects/widgets/fadingcircularindicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LoginPage extends StatefulWidget {
@@ -26,9 +28,17 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> login() async {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const FadingCircularIndicator();
+      },
+    );
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim());
+
+    Navigator.of(context).pop();
   }
 
   @override
@@ -94,7 +104,7 @@ class _LoginPageState extends State<LoginPage> {
                     enabledBorder: const OutlineInputBorder(
                         borderSide: BorderSide(color: primary, width: 0.9)),
                     focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(color:  primary, width: 2)),
+                        borderSide: BorderSide(color: primary, width: 2)),
                     hintText: "Password",
                     suffixIcon: IconButton(
                         onPressed: () {
@@ -112,16 +122,17 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   GestureDetector(
                     onTap: () => {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (_) {
                         return const ForgotPasswordPage();
                       }))
                     },
                     child: Text(
                       'Forgot Password?',
                       style: GoogleFonts.lato(
-                          color:  primary,
+                          color: primary,
                           decoration: TextDecoration.underline,
-                          decorationColor:  primary),
+                          decorationColor: primary),
                     ),
                   ),
                 ],
@@ -139,7 +150,10 @@ class _LoginPageState extends State<LoginPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       )),
-                  child: const Text("L O G I N", style: TextStyle(color: white),)),
+                  child: const Text(
+                    "L O G I N",
+                    style: TextStyle(color: white),
+                  )),
               const SizedBox(
                 height: 10,
               ),

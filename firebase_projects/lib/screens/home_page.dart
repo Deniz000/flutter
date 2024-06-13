@@ -15,18 +15,18 @@ List<String> docId = [];
 
 class _HomePageState extends State<HomePage> {
   Future getDocId() async {
-    await FirebaseFirestore.instance.collection('users').get().then(
-        (snapshot) => {
-          docId =[],
+    await FirebaseFirestore.instance
+        .collection('users')
+        .get()
+        .then((snapshot) => {
+              docId.clear(),
               snapshot.docs
                   .forEach((document) => docId.add(document.reference.id))
             });
   }
 
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: pastelBlue,
