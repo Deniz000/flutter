@@ -1,5 +1,5 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:demo_pages/animationapp/animation_learn.dart';
+import 'package:demo_pages/carousel_slider/carousel_slider.dart';
 import 'package:demo_pages/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: LightTheme().theme,
-      home: const AnimationLearn(),
+      home: const CarouselSliderLearn(),
     );
   }
 }
