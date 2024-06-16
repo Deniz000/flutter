@@ -1,4 +1,3 @@
-import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:demo_pages/carousel_slider/carousel_slider.dart';
 import 'package:demo_pages/theme/light_theme.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +7,17 @@ Future<void> main() async {
 
   // await NotificationController.initializeLocalNotifications();
   // await NotificationController.initializeIsolateReceivePort();
-  AwesomeNotifications().initialize(
-      null,
-      [
-        NotificationChannel(
-            channelKey: 'basic_channel',
-            channelName: 'Kisisel bildirim!',
-            channelDescription: "kisisel bildirim for learning notifications",
-            defaultColor: Colors.blue,
-            ledColor: Colors.red)
-      ],
-      debug: true);
+  // AwesomeNotifications().initialize(
+  //     null,
+  //     [
+  //       NotificationChannel(
+  //           channelKey: 'basic_channel',
+  //           channelName: 'Kisisel bildirim!',
+  //           channelDescription: "kisisel bildirim for learning notifications",
+  //           defaultColor: Colors.blue,
+  //           ledColor: Colors.red)
+  //     ],
+  //     debug: true);
 
   runApp(const MyApp());
 }

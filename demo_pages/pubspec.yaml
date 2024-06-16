@@ -54,6 +54,8 @@ dependencies:
   carousel_slider: ^4.2.1
   #fonts
   google_fonts: ^6.2.1
+  #on mobile, to use image
+  cached_network_image: ^3.3.1
 
   #notification
   awesome_notifications: ^0.9.3+1
@@ -82,15 +84,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-      - lib/walletappui/icons/
-      - lib/demo_one/assets/
-      - lib/chatui/avatars/
-      - lib/weatherapp/assets/
-      - lib/splash_screens/assets/
-      - lib/onboardings/assets/
-      - lib/login/asset/
-      - lib/dashboard/assets/
       - lib/carousel_slider/assets/
+      # - lib/walletappui/icons/
+      # - lib/demo_one/assets/
+      # - lib/chatui/avatars/
+      # - lib/weatherapp/assets/
+      # - lib/splash_screens/assets/
+      # - lib/onboardings/assets/
+      # - lib/login/asset/
+      # - lib/dashboard/assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
