@@ -2,12 +2,11 @@ class TImages {
   TImages._();
 //App Logos
   static const String darkAppLogo =
-      "assets/logos/t-store-splash-Logo-black.png";
-  static const String lightAppLogo =
-      "assets/logos/t-store-splash-logo-white.png";
+      "assets/logos/dark-logo.png";
+  static const String lightAppLogo = "assets/logos/light-logo.png";
 // -- Social Logos
-  static const String google = "assets/logos/google-icon.png";
-  static const String facebook = "assets/logos/facebook-icon.png";
+  static const String google = "assets/logos/google.png";
+  static const String facebook = "assets/logos/facebook.png";
 
   // -- OnBoarding Images
   static const String onBoardingImage3 =
