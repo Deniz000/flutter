@@ -1,5 +1,6 @@
 import 'package:ecommerce_app/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:ecommerce_app/features/authentication/screens/onboarding/on_board_page.dart';
+import 'package:ecommerce_app/features/authentication/screens/onboarding/on_boarding_button.dart';
 import 'package:ecommerce_app/features/authentication/screens/onboarding/on_boarding_navigation.dart';
 import 'package:ecommerce_app/features/authentication/screens/onboarding/on_boarding_skip.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
@@ -21,6 +22,8 @@ class OnBoardingScreen extends StatelessWidget {
       body: Stack(
         children: [
           PageView(
+            controller: controller.pageController,
+            onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardPage(
                 image: TImages.onBoardingImage1,
@@ -45,23 +48,5 @@ class OnBoardingScreen extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class OnBoardingButton extends StatelessWidget {
-  const OnBoardingButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned(
-        bottom: TDeviceUtils.getBottomNavigationBarHeight(),
-        right: Sizes.defaultSpace,
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-          onPressed: () {},
-          child: const Icon(Iconsax.arrow_right_3),
-        ));
   }
 }

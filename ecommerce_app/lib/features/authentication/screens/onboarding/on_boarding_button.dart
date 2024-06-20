@@ -2,23 +2,24 @@ import 'package:ecommerce_app/features/authentication/controllers/onboarding/onb
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/device/device_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
-class OnBoardingSkip extends StatelessWidget {
-  const OnBoardingSkip({
+class OnBoardingButton extends StatelessWidget {
+  const OnBoardingButton({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    
     return Positioned(
-        top: TDeviceUtils.getAppBarHeight(),
+        bottom: TDeviceUtils.getBottomNavigationBarHeight(),
         right: Sizes.defaultSpace,
-        child: TextButton(
-          child: const Text('Skip'),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(shape: const CircleBorder()),
           onPressed: () {
-            OnboardingController.instance.skipPage();
+            OnboardingController.instance.nextPage();
           },
+          child: const Icon(Iconsax.arrow_right_3),
         ));
   }
 }
