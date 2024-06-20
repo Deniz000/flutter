@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/features/authentication/screens/signup/signup.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TLoginForm extends StatelessWidget {
@@ -19,7 +21,6 @@ class TLoginForm extends StatelessWidget {
             decoration: const InputDecoration(
                 prefixIcon: Icon(Iconsax.direct_right),
                 labelText: TTexts.email),
-            textAlignVertical: TextAlignVertical.center,
           ),
           const SizedBox(
             height: Sizes.spaceBtwInputFields,
@@ -61,7 +62,11 @@ class TLoginForm extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: OutlinedButton(
-                  onPressed: () {}, child: const Text(TTexts.createAccount))),
+                  onPressed: () {
+                    Get.to(() => const SignUpScreen(), 
+                    transition: Transition.circularReveal,
+                    duration: const Duration(seconds: 1));
+                  }, child: const Text(TTexts.createAccount))),
         ],
       ),
     ));

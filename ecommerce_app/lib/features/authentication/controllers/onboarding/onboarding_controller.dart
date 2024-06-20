@@ -21,7 +21,8 @@ class OnboardingController extends GetxController {
   /// Update Current Index & jump to next page
   void nextPage() {
     if (currentPageIndex.value == 2) {
-     Get.offAll(() => const LoginScreen());
+     Get.offAll(() => const LoginScreen(), transition: Transition.rightToLeft,
+     duration: const Duration(seconds: 1));
     }
     int page = currentPageIndex.value + 1;
     pageController.jumpToPage(page);

@@ -15,12 +15,13 @@ class TTexts {
   static const String homeAppbarSubTitle = "Taimoor Sikander";
 
 // •- Authentication Form Text
-  static const String firstNome = "First Name";
-  static const String lastNome = "Last Nane";
+  static const String and = " and ";
+  static const String firstName = "First Name";
+  static const String lastName = "Last Name";
   static const String email = "E-Mail";
   static const String password = "Password";
   static const String newPassword = "New Password";
-  static const String userName = "Usernane";
+  static const String userName = "Username";
   static const String phoneNo = "Phone Number";
   static const String rememberMe = "Remenber Me";
   static const String forgetPassword = "Forget Password?";
@@ -30,7 +31,7 @@ class TTexts {
   static const String orSignWpWith = "or sign up with";
   static const String iAgreeTo = "I agree to";
   static const String privocyPolicy = "Privacy Policy";
-  static const String termsOfUse = "Terns of use";
+  static const String termsOfUse = "Terms of use";
   static const String verificationCode = "verificationCode";
   static const String resendEmail = "Resend Email";
   static const String resendEmailin = "Resend email in";
