@@ -22,7 +22,7 @@ class LoginScreen extends StatelessWidget {
               TLoginHeader(),
               TLoginForm(),
               TFormDivider(
-                dividerText: TTexts.orSignInWith,
+                dividerText: TTexts.orSignUpWith,
               ),
               SizedBox(
                 height: Sizes.spaceBtwSections / 2,
