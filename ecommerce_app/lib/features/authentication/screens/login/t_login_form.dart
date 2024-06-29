@@ -63,9 +63,7 @@ class TLoginForm extends StatelessWidget {
               width: double.infinity,
               child: OutlinedButton(
                   onPressed: () {
-                    Get.to(() => const SignUpScreen(), 
-                    transition: Transition.circularReveal,
-                    duration: const Duration(seconds: 1));
+                    Get.to(() => const SignUpScreen());
                   }, child: const Text(TTexts.createAccount))),
         ],
       ),

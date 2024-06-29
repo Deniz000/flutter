@@ -32,13 +32,13 @@ class TTextTheme {
       color: Colors.black,
     ),
      labelLarge:const TextStyle().copyWith(
-      fontSize: 12.0,
-      fontWeight: FontWeight.normal,
+      fontSize: 14.0,
+      fontWeight: FontWeight.w600,
       color: Colors.black.withOpacity(0.5),
     ),
     labelMedium: const TextStyle().copyWith(
-      fontSize: 14.0,
-      fontWeight: FontWeight.w500,
+      fontSize: 12.0,
+      fontWeight: FontWeight.normal,
       color: Colors.black.withOpacity(0.5),
     ),
   );

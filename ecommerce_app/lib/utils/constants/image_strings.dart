@@ -1,8 +1,7 @@
 class TImages {
   TImages._();
 //App Logos
-  static const String darkAppLogo =
-      "assets/logos/dark-logo.png";
+  static const String darkAppLogo = "assets/logos/dark-logo.png";
   static const String lightAppLogo = "assets/logos/light-logo.png";
 // -- Social Logos
   static const String google = "assets/logos/google.png";
@@ -15,4 +14,9 @@ class TImages {
       "assets/images/on_boarding_images/onboarding-shopping.gif";
   static const String onBoardingImage2 =
       "assets/images/on_boarding_images/onboarding-searching.gif";
+
+  static const String verifyEmailImage =
+      "assets/images/verify_email_images/huge_five.png";
+  static const String sendedEmail =
+      "assets/images/verify_email_images/sended-email.png";
 }
