@@ -16,6 +16,8 @@ class TTexts {
 
 // •- Authentication Form Text
   static const String and = " and ";
+  static const String submit = "Submit";
+  static const String done = "Done";
   static const String firstName = "First Name";
   static const String lastName = "Last Name";
   static const String email = "E-Mail";
@@ -23,8 +25,9 @@ class TTexts {
   static const String newPassword = "New Password";
   static const String userName = "Username";
   static const String phoneNo = "Phone Number";
-  static const String rememberMe = "Remenber Me";
+  static const String rememberMe = "Remember Me";
   static const String forgetPassword = "Forget Password?";
+  static const String resetPassword = "Reset Password?";
   static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
   static const String orSignInWith = "or sign in with";
