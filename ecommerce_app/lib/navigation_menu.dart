@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/features/shop/screens/home/home.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +6,10 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class NavigationMenu extends StatelessWidget {
-  const NavigationMenu({super.key});
+   NavigationMenu({super.key});
 
+  final a = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(NavigationController());
@@ -17,7 +20,9 @@ class NavigationMenu extends StatelessWidget {
           height: 80,
           elevation: 0,
           backgroundColor: darMode ? TColors.dark : Colors.white,
-          indicatorColor: darMode ? TColors.white.withOpacity(0.1) : TColors.black.withOpacity(0.1),
+          indicatorColor: darMode
+              ? TColors.white.withOpacity(0.1)
+              : TColors.black.withOpacity(0.1),
           selectedIndex: controller.selectedItem.value,
           onDestinationSelected: (value) =>
               controller.selectedItem.value = value,
@@ -38,9 +43,7 @@ class NavigationController extends GetxController {
   final Rx<int> selectedItem = 0.obs; //observer variable
 
   final screens = [
-    Container(
-      color: Colors.red,
-    ),
+    const HomeScreen(),
     Container(
       color: Colors.blue,
     ),
