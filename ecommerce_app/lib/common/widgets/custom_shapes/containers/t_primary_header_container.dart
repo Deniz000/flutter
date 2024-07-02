@@ -4,10 +4,7 @@ import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class TPrimaryHeaderContainer extends StatelessWidget {
-  const TPrimaryHeaderContainer({
-    super.key,
-    required this.child
-  });
+  const TPrimaryHeaderContainer({super.key, required this.child});
 
   final Widget child;
   @override
@@ -16,26 +13,25 @@ class TPrimaryHeaderContainer extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.zero,
         color: TColors.primary,
-        child: SizedBox(
-          height: 300,
-          child: Stack(
-            children: [
-              //Background custom shape
-              Positioned(
-                  top: -100,
-                  right: -150,
-                  child: TCircularContainer(
-                      backgroundColor: TColors.textWhite.withOpacity(0.1))),
-              Positioned(
-                top: 100,
-                right: -200,
+        height: 300,
+        child: Stack(
+          children: [
+            //Background custom shape
+            Positioned(
+                top: -100,
+                right: -150,
                 child: TCircularContainer(
-                  backgroundColor: TColors.textWhite.withOpacity(0.3),
-                  padding: 90,
-                ),
+                    backgroundColor: TColors.textWhite.withOpacity(0.1))),
+            Positioned(
+              top: 100,
+              right: -200,
+              child: TCircularContainer(
+                backgroundColor: TColors.textWhite.withOpacity(0.3),
+                padding: 90,
               ),
-            ],
-          ),
+            ),
+            Positioned.fill(child: child),
+          ],
         ),
       ),
     );
