@@ -16,6 +16,7 @@ class TTexts {
 
 // •- Authentication Form Text
   static const String and = " and ";
+  static const String skip = " Skip ";
   static const String submit = "Submit";
   static const String done = "Done";
   static const String firstName = "First Name";
