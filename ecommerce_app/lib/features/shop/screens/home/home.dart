@@ -1,5 +1,10 @@
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
+import 'package:ecommerce_app/common/widgets/custom_shapes/containers/t_search_container.dart';
+import 'package:ecommerce_app/common/widgets/text/t_section_header.dart';
 import 'package:ecommerce_app/features/shop/screens/home/t_home_app_bar.dart';
+import 'package:ecommerce_app/features/shop/screens/home/t_homecategories.dart';
+import 'package:ecommerce_app/utils/constants/colors.dart';
+import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -14,7 +19,37 @@ class HomeScreen extends StatelessWidget {
             TPrimaryHeaderContainer(
               child: Column(
                 children: [
-                  THomeAppBar()
+                  //custom appbar
+                  THomeAppBar(),
+                  SizedBox(
+                    height: Sizes.spaceBtwSections,
+                  ),
+                  //searchbar
+                  TSearchContainer(
+                    text: 'Search in Store',
+                  ),
+                  SizedBox(
+                    height: Sizes.spaceBtwSections,
+                  ),
+
+                  //Categories
+                  Padding(
+                    padding: EdgeInsets.only(left: Sizes.defaultSpace),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TSectionHeader(
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textcolor: TColors.white,
+                        ),
+                        SizedBox(
+                          height: Sizes.spaceBtwItems,
+                        ),
+                        THomecategories()
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
