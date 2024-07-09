@@ -1,16 +1,7 @@
-# ecommerce_app
+## E-commerce App Practice
 
-A new Flutter project.
+### Overview
+In this project, I focused on the critical preliminary steps required before starting a new project. I have learned the importance of making decisions about fonts, themes, sizes, device features, and helpful tools at the outset. 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Key Learnings
+One of the most important insights I gained is that preparing the project for development—such as deciding on sizes and text styles—is just as crucial as the rest of the project. Proper planning and setup are essential for a successful development process.
