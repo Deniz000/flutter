@@ -19,4 +19,9 @@ class TImages {
       "assets/images/verify_email_images/huge_five.png";
   static const String sendedEmail =
       "assets/images/verify_email_images/sended-email.png";
+
+  //carousal
+  static const String first = "assets/images/carousel_images/sneakers.png";
+  static const String second = "assets/images/carousel_images/model_man.png";
+  static const String third = "assets/images/carousel_images/upto.png";
 }

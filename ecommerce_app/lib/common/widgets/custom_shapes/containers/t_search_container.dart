@@ -33,7 +33,7 @@ class TSearchContainer extends StatelessWidget {
               width: Sizes.spaceBtwItems,
             ),
             Text(
-              'Search in Store',
+              text,
               style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],

@@ -21,6 +21,7 @@ dependencies:
   logger: ^2.3.0
   flutter_native_splash: ^2.4.0
   smooth_page_indicator: ^1.1.0
+  carousel_slider: ^4.2.1
 
 
 dev_dependencies:
@@ -36,7 +37,7 @@ flutter:
     - assets/images/on_boarding_images/
     - assets/images/verify_email_images/
     - assets/logos/
-
+    - assets/images/carousel_images/
 
   fonts:
     - family: Poppins
