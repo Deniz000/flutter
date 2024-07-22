@@ -24,4 +24,5 @@ class TImages {
   static const String first = "assets/images/carousel_images/sneakers.png";
   static const String second = "assets/images/carousel_images/model_man.png";
   static const String third = "assets/images/carousel_images/upto.png";
+  static const String shoes = "assets/images/carousel_images/shoes.png";
 }

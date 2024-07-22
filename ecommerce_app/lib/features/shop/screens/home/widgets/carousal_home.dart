@@ -24,8 +24,8 @@ class CarousalHome extends StatelessWidget {
               onPageChanged: (index, reason) {
                   controller.updatePageIndicate(index);
                 },
-              aspectRatio: 16 / 9,
-              viewportFraction: 0.9),
+              aspectRatio: 18 / 11,
+              viewportFraction: 1),
           items: CarouselItems.items.map((item) {
             return Builder(
               builder: (BuildContext context) {
@@ -47,9 +47,9 @@ class CarousalHome extends StatelessWidget {
             onDotClicked: (index) => controller.dotClickedPage(index),
             count: CarouselItems.items.length,
             effect: const WormEffect(
-              dotHeight: 8,
+              dotHeight: 5,
               dotWidth: 25,
-              activeDotColor: TColors.dark,
+              activeDotColor: TColors.primary,
               dotColor: TColors.grey,
             ), // your preferred effect
           ),

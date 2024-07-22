@@ -1,5 +1,7 @@
+import 'package:ecommerce_app/common/layout/t_grid_view.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/t_primary_header_container.dart';
 import 'package:ecommerce_app/common/widgets/custom_shapes/containers/t_search_container.dart';
+import 'package:ecommerce_app/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:ecommerce_app/common/widgets/text/t_section_header.dart';
 import 'package:ecommerce_app/common/widgets/text/t_vertical_image_text.dart';
 import 'package:ecommerce_app/features/shop/screens/home/widgets/carousal_home.dart';
@@ -67,7 +69,14 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            CarousalHome()
+            CarousalHome(),
+            const SizedBox(
+              height: Sizes.defaultSpace,
+            ),
+            const Padding(
+              padding: EdgeInsets.all(Sizes.defaultSpace),
+              child: TGridView(),
+            )
           ],
         ),
       ),
