@@ -10,6 +10,7 @@ class TRoundedContainer extends StatelessWidget {
     this.height,
     this.margin,
     this.padding,
+    required this.dark,
     this.showBorder = false,
     this.radius = Sizes.cardRadiuslg,
     this.backgroundColor = TColors.white,
@@ -24,17 +25,18 @@ class TRoundedContainer extends StatelessWidget {
   final Color backgroundColor;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final bool dark;
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: width,
-      height: height,
-      padding: padding,
-      margin: margin,
-      decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(radius),
-          border: showBorder ? Border.all(color: borderColor) : null), //
-      child: child);
+        width: width,
+        height: height,
+        padding: padding,
+        margin: margin,
+        decoration: BoxDecoration(
+            color: dark ? TColors.dark : backgroundColor,
+            borderRadius: BorderRadius.circular(radius),
+            border: showBorder ? Border.all(color: borderColor) : null), //
+        child: child);
   }
 }

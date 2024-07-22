@@ -33,24 +33,27 @@ class TProductCardVertical extends StatelessWidget {
               height: 180,
               padding: const EdgeInsets.all(Sizes.sm),
               backgroundColor: dark ? TColors.dark : TColors.light,
+              dark: dark,
               child: Stack(
                 children: [
-                  const Positioned.fill(
+                  Positioned.fill(
                     top: 12,
                     child: TRoundedImage(
+                      dark: dark,
                       imageUrl: TImages.shoes,
                       applyImageRadius: true,
-                      padding: EdgeInsets.symmetric(horizontal: Sizes.sm),
+                      padding: const EdgeInsets.symmetric(horizontal: Sizes.sm),
                     ),
                   ),
-                  const Positioned(
+                  Positioned(
                     top: 12,
                     child: TRoundedContainer(
+                      dark: dark,
                       radius: Sizes.sm,
                       backgroundColor: TColors.secondary,
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           horizontal: Sizes.sm, vertical: Sizes.xs),
-                      child: Text("25%"),
+                      child: const Text("25%"),
                     ),
                   ),
                   Positioned(
@@ -69,7 +72,9 @@ class TProductCardVertical extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: Sizes.sm),
-              child: Column(children: [
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
                 const TProductTitleText(
                   title: 'Child Nike Air Shoes',
                 ),
