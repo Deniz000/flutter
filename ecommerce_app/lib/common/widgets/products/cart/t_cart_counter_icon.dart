@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/utils/constants/colors.dart';
+import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -24,7 +25,7 @@ class TCartCounterIcon extends StatelessWidget {
             width: 18,
             height: 18,
             decoration: BoxDecoration(
-              color: Colors.black.withOpacity(0.6),
+              color: THelperFunctions.isDarkMode(context) ? Colors.white.withOpacity(0.6) : Colors.black.withOpacity(0.6),
               borderRadius: BorderRadius.circular(100),
             ),
             child: Center(

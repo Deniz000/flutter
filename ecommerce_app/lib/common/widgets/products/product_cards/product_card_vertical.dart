@@ -1,9 +1,11 @@
 import 'package:ecommerce_app/common/styles/t_rounded_container.dart';
-import 'package:ecommerce_app/common/styles/t_rounded_images.dart';
 import 'package:ecommerce_app/common/styles/t_shadow.dart';
 import 'package:ecommerce_app/common/widgets/icon/facorite_icon.dart';
+import 'package:ecommerce_app/common/widgets/images/t_rounded_images.dart';
+import 'package:ecommerce_app/common/widgets/text/t_brand_title_text.dart';
 import 'package:ecommerce_app/common/widgets/text/t_product_title_text.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
+import 'package:ecommerce_app/utils/constants/enums.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
@@ -72,24 +74,21 @@ class TProductCardVertical extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: Sizes.sm),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
+              child:
+                  Column(mainAxisAlignment: MainAxisAlignment.start, children: [
                 const TProductTitleText(
                   title: 'Child Nike Air Shoes',
                 ),
                 const SizedBox(
                   height: Sizes.spaceBtwItems / 2,
                 ),
-                Row(children: [
-                  Text('Nike',
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                      style: Theme.of(context).textTheme.labelMedium),
-                  const SizedBox(width: Sizes.xs),
-                  const Icon(Iconsax.verify5,
-                      color: TColors.primary, size: Sizes.iconXs),
-                ]),
+                const TBrandTitleText(
+                  title:  'Nike',
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                  brandTextSize: TextSizes.small,
+                  isThereIcon: false,
+                ),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

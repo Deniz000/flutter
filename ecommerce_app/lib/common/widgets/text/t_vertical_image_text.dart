@@ -35,24 +35,26 @@ class TVerticalImageText extends StatelessWidget {
                 color: backgroundColor ?? (dark ? TColors.dark : TColors.light),
                 borderRadius: BorderRadius.circular(100),
               ),
-              child: Center(
+              child: const Center(
                 child: Icon(
                   Iconsax.sticker,
-                  color: dark ? TColors.light : TColors.dark,
+                  color: TColors.dark ,
                 ),
               ), //https://youtu.be/tojRS4dJkLg?list=PL5jb9EteFAOAusKTSuJ5eRl1BapQmMDT6&t=1248
             ),
             const SizedBox(height: Sizes.spaceBtwItems / 3),
-            SizedBox(
-              width: 46,
-              child: Text(
-                title,
-                maxLines: 1,
-                style: Theme.of(context)
-                    .textTheme
-                    .labelMedium!
-                    .apply(color: textColor),
-                overflow: TextOverflow.ellipsis,
+            Expanded(
+              child: SizedBox(
+                width: 46,
+                child: Text(
+                  title,
+                  maxLines: 1,
+                  style: Theme.of(context)
+                      .textTheme
+                      .labelMedium!
+                      .apply(color: textColor),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             )
           ],
