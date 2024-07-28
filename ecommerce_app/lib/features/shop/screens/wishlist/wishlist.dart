@@ -33,9 +33,9 @@ class FavoriteScreen extends StatelessWidget {
                   itemCount: 4,
                   itemBuilder: (_, index) => const TProductCardVertical())
             ],
-          ), // Column
-        ), // Padding
-      ), // SingleChildScrollView
+          ), 
+        ), 
+      ), 
     );
   }
 }
