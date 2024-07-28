@@ -62,7 +62,10 @@ class HomeScreen extends StatelessWidget {
                               );
                             },
                           ),
-                        )
+                        ),
+                        const SizedBox(
+                          height: Sizes.spaceBtwSections * 1.5,
+                        ),
                       ],
                     ),
                   )
@@ -73,19 +76,19 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: Sizes.defaultSpace,
             ),
-             Padding(
+            Padding(
               padding: const EdgeInsets.all(Sizes.defaultSpace),
               child: Column(
                 children: [
-                   const TSectionHeader(
+                  const TSectionHeader(
                     title: 'Popular Products',
                     showActionButton: true,
                   ),
-                   const SizedBox(
+                  const SizedBox(
                     height: Sizes.defaultSpace,
                   ),
                   TGridView(
-                    itemBuilder: (_,index) => const TProductCardVertical(),
+                    itemBuilder: (_, index) => const TProductCardVertical(),
                     itemCount: 2,
                   ),
                 ],

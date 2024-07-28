@@ -13,7 +13,6 @@ class TPrimaryHeaderContainer extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.zero,
         color: TColors.primary,
-        height: 400,
         child: Stack(
           children: [
             //Background custom shape
@@ -30,7 +29,7 @@ class TPrimaryHeaderContainer extends StatelessWidget {
                 padding: 90,
               ),
             ),
-            Positioned.fill(child: child),
+            child,
           ],
         ),
       ),
