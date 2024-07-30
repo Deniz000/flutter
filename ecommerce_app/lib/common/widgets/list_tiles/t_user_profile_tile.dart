@@ -1,7 +1,9 @@
 import 'package:ecommerce_app/common/widgets/images/t_circular_image.dart';
+import 'package:ecommerce_app/features/personalization/screens/profile/widgets/profile.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TUserProfileTile extends StatelessWidget {
@@ -27,6 +29,6 @@ class TUserProfileTile extends StatelessWidget {
                 .textTheme
                 .bodyMedium!
                 .apply(color: TColors.white)),
-                trailing: IconButton(onPressed: (){}, icon: const Icon(Iconsax.edit, color: TColors.white)),);
+                trailing: IconButton(onPressed: ()=> Get.to(()=>const ProfileScreen()), icon: const Icon(Iconsax.edit, color: TColors.white)),);
   }
 }
