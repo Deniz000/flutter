@@ -16,29 +16,29 @@ dependencies:
   iconsax: ^0.0.8
   http: ^1.2.1
   #localization
-  intl: ^0.19.0
-  url_launcher: ^6.3.0
+  intl: ^0.20.1
+  url_launcher: ^6.3.1
+  url_launcher_ios: ^6.2.4
   logger: ^2.3.0
-  flutter_native_splash: ^2.4.0
   smooth_page_indicator: ^1.1.0
-  carousel_slider: ^4.2.1
-
+  carousel_slider: ^5.0.0
+  readmore: ^3.0.0
+  flutter_rating_bar: ^4.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
 
   assets:
-    - assets/icons/brands/
     - assets/images/on_boarding_images/
     - assets/images/verify_email_images/
     - assets/logos/
     - assets/images/carousel_images/
-
+    - assets/images/shoes/
   fonts:
     - family: Poppins
       fonts:

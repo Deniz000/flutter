@@ -6,18 +6,17 @@ import 'package:iconsax/iconsax.dart';
 
 class TBrandTitleText extends StatelessWidget {
   const TBrandTitleText({
-    super.key, required this.title, this.color, this.overflow, required this.maxLines, required this.brandTextSize, required this.isThereIcon,
+    super.key, required this.title, this.color, this.overflow, this.maxLines, required this.brandTextSize, required this.isThereIcon,
   });
 
   final String title;
   final Color? color;
   final TextOverflow? overflow;
-  final int maxLines;
+  final int? maxLines;
   final TextSizes brandTextSize;
   final bool isThereIcon;
   @override
   Widget build(BuildContext context) {
-    var title = 'Nike';
     return Row(children: [
       Text(
         title,

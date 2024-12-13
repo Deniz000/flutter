@@ -25,4 +25,7 @@ class TImages {
   static const String second = "assets/images/carousel_images/model_man.png";
   static const String third = "assets/images/carousel_images/upto.png";
   static const String shoes = "assets/images/carousel_images/shoes.png";
+  static const String lavi1 = "assets/images/shoes/lavi1.png";
+  static const String lavi2 = "assets/images/shoes/lavi2.png";
+  static const String lavi3 = "assets/images/shoes/lavi3.png";
 }

@@ -1,6 +1,8 @@
+import 'package:ecommerce_app/features/shop/screens/card/cart.dart'; 
 import 'package:ecommerce_app/utils/constants/colors.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TCartCounterIcon extends StatelessWidget {
@@ -16,7 +18,7 @@ class TCartCounterIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(children: [
       IconButton(
-          onPressed: onPressed,
+          onPressed: ()=> Get.to(()=> const CartScreen()),
           icon: Icon(Iconsax.shopping_bag, color: iconColor)),
       Positioned(
           right: 3,

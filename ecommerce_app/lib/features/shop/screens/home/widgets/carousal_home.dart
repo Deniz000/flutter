@@ -19,7 +19,7 @@ class CarousalHome extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         CarouselSlider(
-          carouselController: controller.carouselController,
+          carouselController: controller.controller,
           options: CarouselOptions(
               onPageChanged: (index, reason) {
                   controller.updatePageIndicate(index);

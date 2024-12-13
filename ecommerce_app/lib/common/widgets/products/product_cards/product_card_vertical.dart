@@ -2,6 +2,7 @@ import 'package:ecommerce_app/common/styles/t_rounded_container.dart';
 import 'package:ecommerce_app/common/styles/t_shadow.dart';
 import 'package:ecommerce_app/common/widgets/icon/facorite_icon.dart';
 import 'package:ecommerce_app/common/widgets/images/t_rounded_images.dart';
+import 'package:ecommerce_app/common/widgets/products/detail/product_detail.dart';
 import 'package:ecommerce_app/common/widgets/text/t_brand_title_text.dart';
 import 'package:ecommerce_app/common/widgets/text/t_product_title_text.dart';
 import 'package:ecommerce_app/utils/constants/colors.dart';
@@ -10,6 +11,7 @@ import 'package:ecommerce_app/utils/constants/image_strings.dart';
 import 'package:ecommerce_app/utils/constants/sizes.dart';
 import 'package:ecommerce_app/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TProductCardVertical extends StatelessWidget {
@@ -19,7 +21,7 @@ class TProductCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(()=> const ProductDetail()),
       child: Container(
           width: 200,
           padding: const EdgeInsets.all(1),
@@ -42,7 +44,7 @@ class TProductCardVertical extends StatelessWidget {
                     top: 12,
                     child: TRoundedImage(
                       dark: dark,
-                      imageUrl: TImages.shoes,
+                      imageUrl: TImages.lavi1,
                       applyImageRadius: true,
                       padding: const EdgeInsets.symmetric(horizontal: Sizes.sm),
                     ),

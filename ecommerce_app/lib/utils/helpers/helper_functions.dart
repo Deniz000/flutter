@@ -6,9 +6,13 @@ class THelperFunctions {
   static Color? getColor(String value) {
     switch (value) {
       case 'Green':
-        return Colors.green;
+        return const Color.fromARGB(255, 4, 108, 7);
       case 'Red':
         return Colors.red;
+      case 'Orange':
+        return Colors.orange;
+      case 'Yellow':
+        return Colors.yellow;
       case 'Blue':
         return Colors.blue;
       case 'Pink':
@@ -16,7 +20,7 @@ class THelperFunctions {
       case 'Grey':
         return Colors.grey;
       case 'Purple':
-        return Colors.purple;
+        return const Color.fromARGB(255, 91, 12, 105);
       case 'Black':
         return Colors.black;
       case 'White':
